@@ -12,7 +12,6 @@ if(isset($_POST['register']))
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-   
     $check = "SELECT * FROM teacherrg WHERE username='$username'";
     $result = mysqli_query($conn,$check);
 
@@ -23,9 +22,9 @@ if(isset($_POST['register']))
     else
     {
         $sql = "INSERT INTO teacherrg
-                (name,email,mobile,qualification,username,password)
-                VALUES
-                ('$name','$email','$mobile','$qualification','$username','$password')";
+        (name,email,mobile,qualification,username,password)
+        VALUES
+        ('$name','$email','$mobile','$qualification','$username','$password')";
 
         if(mysqli_query($conn,$sql))
         {
@@ -39,90 +38,111 @@ if(isset($_POST['register']))
 }
 ?>
 
-
 <html>
 <head>
-    <title>Teacher Registration</title>
+<title>Teacher Registration</title>
 
-    <style>
-        body{
-            font-family:Arial;
-            background:#f2f2f2;
-        }
+<style>
 
-        .container{
-            width:450px;
-            margin:50px auto;
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 10px gray;
-        }
+body{
+    font-family:Arial;
+    background:#f2f2f2;
+}
 
-        h2{
-            text-align:center;
-            color:blue;
-        }
+.container{
+    width:450px;
+    margin:50px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
 
-        input, textarea{
-            width:100%;
-            padding:10px;
-            margin-top:8px;
-            margin-bottom:15px;
-            border:1px solid #ccc;
-            border-radius:5px;
-        }
+h2{
+    text-align:center;
+    color:blue;
+}
 
-        .btn{
-            width:100%;
-            background:blue;
-            color:white;
-            padding:10px;
-            border:none;
-            border-radius:5px;
-            cursor:pointer;
-        }
+input{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
 
-        .btn:hover{
-            background:darkblue;
-        }
+.btn{
+    width:100%;
+    background:blue;
+    color:white;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
 
-        .msg{
-            text-align:center;
-            color:red;
-            font-weight:bold;
-            margin-bottom:10px;
-        }
-    </style>
+.btn:hover{
+    background:darkblue;
+}
+
+.msg{
+    text-align:center;
+    color:red;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.login{
+    text-align:center;
+    margin-top:15px;
+}
+
+.login a{
+    text-decoration:none;
+    color:blue;
+    font-weight:bold;
+}
+
+.login a:hover{
+    text-decoration:underline;
+}
+
+</style>
 
 </head>
 <body>
 
 <div class="container">
 
-    <h2>Teacher Registration</h2>
+<h2>Teacher Registration</h2>
 
-    <div class="msg">
-        <?php echo $message; ?>
-    </div>
+<div class="msg">
+    <?php echo $message; ?>
+</div>
 
-    <form method="post">
+<form method="post">
 
-        <input type="text" name="name" placeholder="Enter Name" required>
+    <input type="text" name="name" placeholder="Enter Name" required>
 
-        <input type="email" name="email" placeholder="Enter Email" required>
+    <input type="email" name="email" placeholder="Enter Email" required>
 
-        <input type="number" name="mobile" placeholder="Enter Mobile Number" required>
+    <input type="number" name="mobile" placeholder="Enter Mobile Number" required>
 
-        <input type="text" name="qualification" placeholder="Enter Qualification" required>
+    <input type="text" name="qualification" placeholder="Enter Qualification" required>
 
-        <input type="text" name="username" placeholder="Enter Username" required>
+    <input type="text" name="username" placeholder="Enter Username" required>
 
-        <input type="password" name="password" placeholder="Enter Password" required>
+    <input type="password" name="password" placeholder="Enter Password" required>
 
-        <input type="submit" name="register" value="Register" class="btn">
+    <input type="submit" name="register" value="Register" class="btn">
 
-    </form>
+</form>
+
+<div class="login">
+    Already Registered?
+    <a href="teacher_login.php">Login Here</a>
+</div>
 
 </div>
 
