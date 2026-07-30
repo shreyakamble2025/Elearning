@@ -1,185 +1,87 @@
 <html>
 <head>
-<title>EduVerse | Online Learning Management System</title>
 <style>
-*
+html
 {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    scroll-behavior:smooth;
 }
+
 body
 {
-    background:#f4f4f4;
+    margin:0;
+	background-color:#white;
+	
 }
-
-header
+.navbar
 {
-    background:#0d6efd;
+    position:sticky;
+    margin-top:60px;
+    width:100%;
+    background:#C795C5;
+    padding:15px;
+    z-index:1000;
+}
+.navbar a, .dropbtn
+{
     color:white;
-    padding:20px;
-    text-align:center;
-}
-header h1
-{
-    font-size:40px;
-}
-
-header p
-{
-    margin-top:8px;
-    font-size:18px;
-}
-nav
-{
-    background:#222;
-}
-nav ul
-{
-    list-style:none;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-nav ul li a
-{
-    display:block;
-    color:white;
+    margin:10px;
     text-decoration:none;
-    padding:15px 25px;
-}
-
-nav ul li a:hover
-{
-    background:#0d6efd;
-}
-.hero
-{
-    background:#eaf4ff;
-    text-align:center;
-    padding:80px 20px;
-}
-
-.hero h2
-{
-    font-size:40px;
-    color:#0d6efd;
-}
-
-.hero p
-{
-    margin:20px 0;
     font-size:20px;
+    padding:8px 12px;
+	font-family:Garamond;
 }
 
-.btn
+.navbar a:hover
 {
-    display:inline-block;
-    background:#0d6efd;
-    color:white;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:5px;
+    background-color:CCCCFF;
+    color:Brown;
 }
-
-.btn:hover
+p
 {
-    background:#084298;
+	font-size:59px;
+	font-family:garamond;
+	text-align:center;
+	margin-top:50px;
+	color:black;
 }
-.panel
+#Home
 {
-    padding:50px;
-    text-align:center;
+	font-size:18px;
+	font-family:garamond;
+	text-align:center;
 }
-
-.box
+.section
 {
-    width:280px;
-    display:inline-block;
-    background:white;
-    margin:20px;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0px 0px 10px gray;
+    min-height:100vh;
+    padding-top:50px;
 }
-
-.box h3
+#About
 {
-    color:#0d6efd;
-    margin-bottom:15px;
+	font-size:17px;
+	font-family:garamond;
+	text-align:center;
 }
-
-.box p
-{
-    margin-bottom:20px;
-}
-
-.box a
-{
-    background:#0d6efd;
-    color:white;
-    text-decoration:none;
-    padding:10px 20px;
-    border-radius:5px;
-}
-
-.box a:hover
-{
-    background:#084298;
-}
-footer
-{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:30px;
-}
-
 </style>
 </head>
 <body>
-<header><h1>EduVerse</h1>
-<p>Learn Today, Lead Tomorrow</p>
-</header>
-<nav>
-<ul><li><a href="index.php">Home</a></li>
-<li><a href="about.php">About</a></li>
-<li><a href="contact.php">Contact</a></li>
-<li><a href="admin_login.php">Admin Panel</a></li>
-<li><a href="teacher_login.php">Teacher Panel</a></li>
-<li><a href="student_login.php">Student Panel</a></li>
-</ul>
-</nav>
-<section class="hero">
-<h2>Welcome to EduVerse</h2>
+<p style="text-shadow:3px 3px 7px #696868;">LEARNHUB</p>
+<div class="navbar">
+<a href="#Home">Home</a>
+<a href="#About">About us</a>
+<a href="#Contact">Contact us</a>
+<a href="Login.php">Login</a>
+</div>
+<div id="Home" class="Section">
+<p style="text-shadow:2px 2px 5px #696868;"">Welcome to LearnHub</p>
+<p style="font-size:16px; font-family:Calibri;">Empowering Diploma Students Through Smart Learning</p>
 
-<p>Online Learning Management System for Students and Teachers.
-</p>
-<a href="student_login.php" class="btn">Start Learning</a>
-</section>
-<section class="panel">
-<h2>Login Panels</h2>
-<div class="box">
-<h3>Admin Panel</h3>
-<p>Manage Courses, Teachers, Students and Reports.</p>
-<a href="admin_login.php">Admin Login</a>
+<p style="font-size:15px; padding-left:140px; padding-right:140px; font-family:none;">LearnHub is a modern Diploma E-Learning Management System designed to help students achieve academic success through digital education. Our platform provides easy access to study materials, video lectures, assignments, quizzes, and course updates anytime, anywhere.
+
+Whether you are studying Computer Engineering, Mechanical Engineering, Civil Engineering, Electrical Engineering, Electronics & Telecommunication, Information Technology, or any other diploma course, LearnHub offers all the resources you need in one place.</p>
+
+
+<p style="font-size:16px; margin-top:120px;">"Learn Today, Lead Tomorrow with LearnHub."</p>
 </div>
-<div class="box">
-<h3>Teacher Panel</h3>
-<p>Upload Videos, Notes, Assignments and Quiz.</p>
-<a href="teacher_login.php">Teacher Login</a>
-</div>
-<div class="box">
-<h3>Student Panel</h3>
-<p>Learn Courses, Watch Videos and Attend Quiz.</p>
-<a href="student_login.php">Student Login</a>
-</div>
-</section>
-<footer>
-<p>© 2026 EduVerse | Online Learning Management System</p>
-</footer>
+
 </body>
 </html>
