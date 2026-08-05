@@ -1,214 +1,400 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electrical Department - LearnHub</title>
+<title> Department - LearnHub</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+  /* --- CSS RESET & BASE STYLES --- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  }
 
-body{
-    background:#f5f5f5;
-}
+  body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 35%, #311042 70%, #0f172a 100%);
+    background-attachment: fixed;
+    color: #f8fafc;
+    min-height: 100vh;
+  }
 
-.header{
-    width:100%;
-    height:70px;
-    background:#0d6efd;
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 40px;
-    position:fixed;
-    top:0;
-    left:0;
-}
+  /* --- HEADER BAR --- */
+  .header {
+    width: 100%;
+    height: 70px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
 
-h2{
-    font-size:30px;
-}
-.header input{
-    width:300px;
-    padding:8px;
-    border:none;
-    border-radius:5px;
-}
+  .logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+  }
 
-.container
-{
-    display:flex;
-    margin-top:70px;
-}
-.sidebar
-{
-    width:250px;
-    height:calc(100vh - 70px);
-    background:white;
-    overflow-y:auto;
-    position:fixed;
-    border-right:1px solid #ddd;
-}
-.sidebar h3
-{
-    padding:15px;
-    background:#198754;
-    color:white;
-}
-.sidebar a
-{
-    display:block;
-    padding:12px 20px;
-    text-decoration:none;
-    color:black;
-    border-bottom:1px solid #eee;
-}
-.sidebar a:hover
-{
-    background:#0d6efd;
-    color:white;
-}
-.main
-{
-    margin-left:250px;
-    padding:40px;
-    width:100%;
-}
+  .header .search-input {
+    width: 280px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
 
-.banner
-{
-    width:100%;
-    height:300px;
-    background:#dbeafe;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:10px;
-}
-.banner img
-{
-    width:70%;
-	height:80%
-	
-}
-.content
-{
-    margin-top:30px;
-}
-.card
-{
-    background:white;
-    padding:25px;
-    margin-top:20px;
-    border-radius:10px;
-    box-shadow:6px 6px 8px lightgray;
-}
-button
-{
-    margin-top:15px;
-    padding:10px 20px;
-    background:#198754;
-    color:white;
-    border:none;
-    border-radius:5px;
-}
-button:hover
-{
-    background:#146c43;
-}
-.footer
-{
-    margin-top:40px;
-    text-align:center;
-    padding:20px;
-    background:#0d6efd;
-    color:white;
-}
+  .header .search-input::placeholder {
+    color: #94a3b8;
+  }
+
+  .header .search-input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #38bdf8;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+  }
+
+  /* --- MAIN CONTAINER LAYOUT --- */
+  .container {
+    display: flex;
+    margin-top: 70px;
+  }
+
+  /* --- SIDEBAR --- */
+  .sidebar {
+    width: 260px;
+    height: calc(100vh - 70px);
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-y: auto;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    z-index: 100;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .sidebar-header {
+    padding: 18px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #38bdf8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(56, 189, 248, 0.05);
+  }
+
+  .sidebar a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.25 ease;
+  }
+
+  .sidebar a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #38bdf8;
+    padding-left: 24px;
+  }
+
+  .sidebar a.active {
+    background: rgba(129, 140, 248, 0.15);
+    color: #818cf8;
+    border-left: 3px solid #818cf8;
+  }
+
+  /* --- MAIN CONTENT AREA --- */
+  .main {
+    margin-left: 260px;
+    padding: 35px 40px 40px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* --- BANNER AREA --- */
+  .banner {
+    width: 100%;
+    height: 240px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+  }
+
+  .banner:hover img {
+    opacity: 0.9;
+  }
+
+  /* --- PAGE CONTENT & CARDS --- */
+  .content {
+    margin-top: 30px;
+    flex: 1;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+
+  .description {
+    color: #94a3b8;
+    line-height: 1.6;
+    font-size: 1rem;
+    max-width: 900px;
+  }
+
+  /* GLASS CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+
+  .card h2 {
+    font-size: 1.35rem;
+    color: #f8fafc;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .list-item .check {
+    color: #34d399;
+    font-weight: bold;
+  }
+
+  .list-item .bullet {
+    color: #38bdf8;
+    font-size: 1.2rem;
+  }
+
+  /* BUTTONS */
+  .btn-action {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #0d6efd, #0284c7);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .btn-action:hover {
+    background: linear-gradient(135deg, #2563eb, #0369a1);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* --- FOOTER --- */
+  .footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+    font-size: 0.88rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  @media(max-width: 900px) {
+    .sidebar {
+      width: 200px;
+    }
+    .main {
+      margin-left: 200px;
+      width: calc(100% - 200px);
+      padding: 20px;
+    }
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media(max-width: 650px) {
+    .container {
+      flex-direction: column;
+    }
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      top: 0;
+    }
+    .main {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
 </style>
 </head>
 <body>
-	<div class="header">
-		<h2>LearnHub</h2>
-		<input type="text" placeholder="Search Courses...">
-	</div>
 
-	<div class="container">
-		<div class="sidebar">
+  <!-- TOP HEADER -->
+  <div class="header">
+    <div class="logo">LearnHub</div>
+    <input type="text" class="search-input" placeholder="Search Courses...">
+  </div>
 
-		<h3>Electrical Dept</h3>
+  <div class="container">
+    
+    <!-- SIDE NAVIGATION BAR -->
+    <div class="sidebar">
+      <div class="sidebar-header">EE Dept</div>
+      <a href="ee.html" class="active">Home</a>
+      <a href="s1.html">Semester 1</a>
+      <a href="s2.html">Semester 2</a>
+      <a href="s3.html">Semester 3</a>
+      <a href="s4.html">Semester 4</a>
+      <a href="s5.html">Semester 5</a>
+      <a href="s6.html">Semester 6</a>
+      <a href="syllabus1.php">Syllabus</a>
+      <a href="notes.php">Notes</a>
+      <a href="#">Previous Question Papers</a>
+      <a href="#">Video Lectures</a>
+      <a href="#">Quiz</a>
+      <a href="#">Certificate</a>
+      <a href="#">FAQ</a>
+    </div>
 
-		<a href="#">Home</a>
-		<a href="#">Introduction</a>
-		<a href="#">Semester 1</a>
-		<a href="#">Semester 2</a>
-		<a href="#">Semester 3</a>
-		<a href="#">Semester 4</a>
-		<a href="#">Semester 5</a>
-		<a href="#">Semester 6</a>
-		<a href="#">Syllabus</a>
-		<a href="#">Notes</a>
-		<a href="#">Previous Question Papers</a>
-		<a href="#">Video Lectures</a>
-		<a href="#">Quiz</a>
-		<a href="#">Certificate</a>
-		<a href="#">FAQ</a>
-		</div>
+    <!-- MAIN PAGE CONTENT -->
+    <div class="main">
 
-		<div class="main">
-			<div class="banner">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqguW8L6X5gCuD2pBPRofSDMhCukDJaQGh2V6HLKXAA&s=10" alt="Electrical Department">
-			</div>
+      <!-- BANNER IMAGE -->
+      <div class="banner">
+        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80" alt="Civil Department Banner">
+      </div>
 
-			<div class="content">
-				<h1>Electrical Engineering Department</h1>
-				<p style="margin-top:15px;">
-				Welcome to the Computer Engineering Department of LearnHub.
-				Electrical Engineering focuses on electrical machines, power generation, transmission, distribution, control systems, and renewable energy technologies.
-				
-				</p>
+      <!-- MAIN DESCRIPTION -->
+      <div class="content">
+        <h1 class="page-title">Electrial Engineering Department</h1>
+        <p class="description">
+		The electrical Department is one of the core branche of engineering that focuses on the design ,installation,operations and maintences and repair of electrical system.
+        </p>
 
-				<div class="card">
-				<h2>Semester Wise Learning</h2>
-				<p>
-				✔️ Semester 1 Notes<br><br>
-				✔️ Semester 2 Notes<br><br>
-				✔️ Semester 3 Notes<br><br>
-				✔️ Semester 4 Notes<br><br>
-				✔️ Semester 5 Notes<br><br>
-				✔️ Semester 6 Notes
-				</p>	
-				<button>Start Learning</button>
+        <!-- CARD GRID -->
+        <div class="card-grid">
 
-				</div>
+          <!-- CARD 1: SEMESTERS -->
+          <div class="card">
+            <div>
+              <h2><span>&#128218;</span> Semester Wise Learning</h2>
+              <div class="list-item"><span class="check">&#10004;</span> Semester 1 Notes</div>
+              <div class="list-item"><span class="check">&#10004;</span> Semester 2 Notes</div>
+              <div class="list-item"><span class="check">&#10004;</span> Semester 3 Notes</div>
+              <div class="list-item"><span class="check">&#10004;</span> Semester 4 Notes</div>
+              <div class="list-item"><span class="check">&#10004;</span> Semester 5 Notes</div>
+              <div class="list-item"><span class="check">&#10004;</span> Semester 6 Notes</div>
+            </div>
+            <button class="btn-action">Start Learning</button>
+          </div>
 
-				<div class="card">
+          <!-- CARD 2: RESOURCES -->
+          <div class="card">
+            <div>
+              <h2><span>&#128194;</span> Academic Resources</h2>
+              <div class="list-item"><span class="bullet">&bull;</span> PDF Notes & Presentations</div>
+              <div class="list-item"><span class="bullet">&bull;</span> Video Tutorials & Lectures</div>
+              <div class="list-item"><span class="bullet">&bull;</span> Previous Year Question Papers</div>
+              <div class="list-item"><span class="bullet">&bull;</span> Assignments & Solutions</div>
+              <div class="list-item"><span class="bullet">&bull;</span> MCQ Tests & Quizzes</div>
+              <div class="list-item"><span class="bullet">&bull;</span> Practical & Lab Manuals</div>
+            </div>
+            <button class="btn-action">View Resources</button>
+          </div>
 
-				<h2>Resources</h2>
+        </div>
+      </div>
 
-				<p>
-				• PDF Notes<br><br>
-				• Video Tutorials<br><br>
-				• Previous Year Question Papers<br><br>
-				• Assignments<br><br>
-				• MCQ Tests<br><br>
-				• Practical Files
-				</p>
+      <!-- FOOTER -->
+      <div class="footer">
+        © 2026 LearnHub E-Learning Management System. All rights reserved.
+      </div>
 
-				<button>View Resources</button>
+    </div>
+  </div>
 
-				</div>
-			</div>
-
-			<div class="footer">
-				© 2026 LearnHub E-Learning Management System
-			</div>
-
-		</div>
-	</div>
 </body>
 </html>

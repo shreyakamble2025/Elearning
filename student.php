@@ -142,7 +142,7 @@ if(isset($_POST['register']))
 
     <div class="login">
        
-        <a href="student_login.php">Login</a>
+        <a href="ce.html">Login</a>
     </div>
 
 </div>
