@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syllabus - LearnHub</title>
+<title>Notes - LearnHub</title>
 
 <style>
   /* --- CSS RESET & BASE STYLES --- */
@@ -54,8 +54,8 @@
     align-items: center;
   }
 
-  /* --- SYLLABUS GRID --- */
-  .syllabus-grid {
+  /* --- SEMESTER GRID --- */
+  .semester-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
@@ -104,7 +104,7 @@
     opacity: 1;
   }
 
-  .card h3 {
+  .card h2 {
     font-size: 1.35rem;
     color: #f8fafc;
     font-weight: 700;
@@ -135,6 +135,7 @@
   }
 
   /* --- BACK BUTTON --- */
+
   .btn-back {
     display: inline-block;
     padding: 12px 28px;
@@ -159,80 +160,54 @@
     .header h1 {
       font-size: 1.5rem;
     }
-    .syllabus-grid {
+    .semester-grid {
       grid-template-columns: 1fr;
     }
   }
-  .back-btn {
-    position: absolute;
-    left: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px 20px;
-    background: rgba(56, 189, 248, 0.15);
-    color: #38bdf8;
-    text-decoration: none;
-    border: 1px solid rgba(56, 189, 248, 0.4);
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-.back-container{
-   width: min(95%,900px);
-    margin: 20px auto 0;
-}
-.back-btn:hover {
-    background: #38bdf8;
-    color: #0f172a;
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
-}
 </style>
 </head>
 <body>
 
 <header class="header">
-	  <div class="back-container">
-    <a href="ce.html" class="back-btn">&#8592; Back</a>
-</div>
-  <h1>Civil Engineering Syllabus</h1>
+  <h1>Electronics & Computer Engineering Notes</h1>
 </header>
 
 <main class="container">
 
-  <div class="syllabus-grid">
+  <div class="semester-grid">
 
     <div class="card">
-      <h3>Semester 1</h3>
-      <a href="ce-view-s1.php" target="_blank">View Syllabus</a>
+      <h2>Semester 1</h2>
+      <a href="eco_notes_s1.php">Open Notes</a>
     </div>
 
     <div class="card">
-      <h3>Semester 2</h3>
-      <a href="ce-view-s2.php" target="_blank">View Syllabus</a>
+      <h2>Semester 2</h2>
+      <a href="eco_notes_s2.php">Open Notes</a>
     </div>
 
     <div class="card">
-      <h3>Semester 3</h3>
-      <a href="ce-view-s3.php" target="_blank">View Syllabus</a>
+      <h2>Semester 3</h2>
+      <a href="eco_notes_s3.php">Open Notes</a>
     </div>
 
     <div class="card">
-      <h3>Semester 4</h3>
-      <a href="ce-view-s4.php" target="_blank">View Syllabus</a>
+      <h2>Semester 4</h2>
+      <a href="eco_notes_s4.php">Open Notes</a>
     </div>
 
     <div class="card">
-      <h3>Semester 5</h3>
-      <a href="ce-view-s5.php" target="_blank">View Syllabus</a>
+      <h2>Semester 5</h2>
+      <a href="eco_notes_s5.php">Open Notes</a>
     </div>
 
     <div class="card">
-      <h3>Semester 6</h3>
-      <a href="ce-view-s6.php" target="_blank">View Syllabus</a>
+      <h2>Semester 6</h2>
+      <a href="eco_notes_s6.php">Open Notes</a>
     </div>
 
   </div>
+
 </main>
 
 </body>
