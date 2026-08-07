@@ -4,29 +4,18 @@ session_start();
 $_SESSION['subject'] = "Advanced Construction Technology";
 $_SESSION['semester'] = "Semester 3";
 
-
 $_SESSION['answers']=array(
 
 1=>'B',
 2=>'A',
 3=>'C',
 4=>'D',
-5=>'A',
-6=>'B',
+5=>'B',
+6=>'A',
 7=>'C',
-8=>'A',
-9=>'D',
-10=>'B',
-11=>'A',
-12=>'C',
-13=>'B',
-14=>'A',
-15=>'D',
-16=>'C',
-17=>'A',
-18=>'B',
-19=>'D',
-20=>'A'
+8=>'D',
+9=>'B',
+10=>'A'
 
 );
 
@@ -42,7 +31,6 @@ $_SESSION['answers']=array(
 
 <title>Advanced Construction Technology Quiz - LearnHub</title>
 
-
 <style>
 
 *{
@@ -53,79 +41,82 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-
 background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
 color:white;
 min-height:100vh;
 padding:40px 20px;
-
 }
 
 .container{
-
 max-width:900px;
 margin:auto;
-
 }
 
 .heading{
-
 text-align:center;
 font-size:42px;
 color:#38bdf8;
-margin-bottom:30px;
+margin-bottom:10px;
+}
 
+.subheading{
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
 }
 
 .card{
-
 background:rgba(255,255,255,0.06);
 backdrop-filter:blur(15px);
 padding:30px;
 border-radius:20px;
-
 }
 
-.question{
-
+.question-card{
 background:rgba(255,255,255,0.05);
 padding:20px;
 margin-bottom:20px;
 border-radius:15px;
-
 }
 
-.question h3{
-
+.question-title{
 color:#38bdf8;
 margin-bottom:15px;
-
+font-size:18px;
 }
 
-label{
+.options-grid{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
 
+.option-label{
 display:block;
-padding:8px;
-
+padding:10px;
+background:rgba(255,255,255,0.05);
+border-radius:10px;
+cursor:pointer;
 }
 
-.submit{
+.option-label input{
+margin-right:10px;
+}
 
+.btn-submit{
 width:100%;
 padding:15px;
-background:#0d6efd;
-color:white;
 border:none;
 border-radius:30px;
+background:#0d6efd;
+color:white;
 font-size:18px;
 cursor:pointer;
-
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -134,237 +125,668 @@ cursor:pointer;
 
 
 <h1 class="heading">
-Semester 3 - Advanced Construction Technology Quiz
+Advanced Construction Technology Quiz
 </h1>
+
+
+<p class="subheading">
+Test your knowledge of Advanced Construction Technology.
+</p>
 
 
 <div class="card">
 
 
-<form action="quiz1.php" method="post">
+<form action="check_quiz.php" method="post">
 
 
-<div class="question">
-<h3>1. Advanced Construction Technology focuses on</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q1" value="A"> Traditional Painting</label>
-<label><input type="radio" name="q1" value="B"> Modern Construction Methods</label>
-<label><input type="radio" name="q1" value="C"> Electrical Work</label>
-<label><input type="radio" name="q1" value="D"> Water Supply</label>
+<div class="question-title">
+1. Advanced construction technology mainly focuses on
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Traditional methods only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+Modern construction techniques
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+Road signs
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+Survey only
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>2. Prefabrication means</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q2" value="A"> Manufacturing Components Before Site Work</label>
-<label><input type="radio" name="q2" value="B"> Painting Building</label>
-<label><input type="radio" name="q2" value="C"> Breaking Structure</label>
-<label><input type="radio" name="q2" value="D"> Road Repair</label>
+<div class="question-title">
+2. Prefabrication means
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+Manufacturing components before site assembly
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+Manual excavation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Road maintenance
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+Painting work
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>3. Precast concrete is produced in</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q3" value="A"> Soil</label>
-<label><input type="radio" name="q3" value="B"> Water Tank</label>
-<label><input type="radio" name="q3" value="C"> Factory</label>
-<label><input type="radio" name="q3" value="D"> Road</label>
+<div class="question-title">
+3. Ready mix concrete is known as
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+Hand mixed concrete
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Dry concrete
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Concrete produced in plant
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Waste material
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>4. Formwork is used for</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q4" value="A"> Painting</label>
-<label><input type="radio" name="q4" value="B"> Drainage</label>
-<label><input type="radio" name="q4" value="C"> Decoration</label>
-<label><input type="radio" name="q4" value="D"> Supporting Fresh Concrete</label>
+<div class="question-title">
+4. Formwork is used for
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Painting walls
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Testing soil
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Road construction
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Giving shape to concrete
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>5. Ready Mix Concrete is known as</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q5" value="A"> RMC</label>
-<label><input type="radio" name="q5" value="B"> RCC</label>
-<label><input type="radio" name="q5" value="C"> OPC</label>
-<label><input type="radio" name="q5" value="D"> PPC</label>
+<div class="question-title">
+5. A crane is mainly used for
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Mixing concrete
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Lifting heavy loads
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Testing materials
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Measuring land
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>6. Tunnel construction is used for</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q6" value="A"> Decoration</label>
-<label><input type="radio" name="q6" value="B"> Underground Passage</label>
-<label><input type="radio" name="q6" value="C"> Painting</label>
-<label><input type="radio" name="q6" value="D"> Flooring</label>
+<div class="question-title">
+6. Automation in construction helps to
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Increase efficiency
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Reduce quality
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Stop construction
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Increase waste
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>7. Automation in construction improves</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q7" value="A"> Cost Only</label>
-<label><input type="radio" name="q7" value="B"> Colour</label>
-<label><input type="radio" name="q7" value="C"> Efficiency</label>
-<label><input type="radio" name="q7" value="D"> Weight</label>
+<div class="question-title">
+7. BIM stands for
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Basic Industrial Method
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+Building Internal Model
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Building Information Modeling
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Bridge Information Method
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>8. Building Information Modeling is called</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q8" value="A"> BIM</label>
-<label><input type="radio" name="q8" value="B"> RCC</label>
-<label><input type="radio" name="q8" value="C"> CAD</label>
-<label><input type="radio" name="q8" value="D"> GIS</label>
+<div="question-title">
+8. Shotcrete is applied by
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+Hand tools
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+Roller
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+Crane
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+Spraying method
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>9. Crane is used for</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q9" value="A"> Cutting</label>
-<label><input type="radio" name="q9" value="B"> Painting</label>
-<label><input type="radio" name="q9" value="C"> Measuring</label>
-<label><input type="radio" name="q9" value="D"> Lifting Heavy Loads</label>
+<div class="question-title">
+9. Green building technology aims to
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+Increase pollution
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+Save energy and environment
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+Increase waste
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+Reduce safety
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>10. Green building focuses on</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q10" value="A"> Decoration</label>
-<label><input type="radio" name="q10" value="B"> Environmental Sustainability</label>
-<label><input type="radio" name="q10" value="C"> Increasing Cost</label>
-<label><input type="radio" name="q10" value="D"> Heavy Materials</label>
+<div class="question-title">
+10. Construction equipment improves
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Speed and productivity
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+Only cost
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Material wastage
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+Labour problems
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+
+<div class="question-title">
+11. Pre-stressed concrete is used to
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+Increase strength and reduce cracks
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+Reduce durability
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+Increase weight only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+Replace steel completely
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>11. Solar panels are used in</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q11" value="A"> Green Buildings</label>
-<label><input type="radio" name="q11" value="B"> Roads</label>
-<label><input type="radio" name="q11" value="C"> Bridges</label>
-<label><input type="radio" name="q11" value="D"> Tunnels</label>
+<div class="question-title">
+12. Tunnel construction commonly uses
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+Modern excavation methods
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+Painting methods
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Road marking
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+Brick decoration
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>12. 3D printing in construction is used for</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q12" value="A"> Painting</label>
-<label><input type="radio" name="q12" value="B"> Demolition</label>
-<label><input type="radio" name="q12" value="C"> Building Components</label>
-<label><input type="radio" name="q12" value="D"> Water Supply</label>
+<div class="question-title">
+13. 3D printing in construction is used for
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Building components
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+Water treatment
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Road traffic control
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Soil testing
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>13. Modular construction uses</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q13" value="A"> Soil</label>
-<label><input type="radio" name="q13" value="B"> Factory Made Modules</label>
-<label><input type="radio" name="q13" value="C"> Bricks Only</label>
-<label><input type="radio" name="q13" value="D"> Wood Only</label>
+<div class="question-title">
+14. Modular construction means
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+Assembly of prefabricated modules
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Manual excavation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+Painting buildings
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Removing structures
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>14. Safety management reduces</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q14" value="A"> Construction Accidents</label>
-<label><input type="radio" name="q14" value="B"> Building Height</label>
-<label><input type="radio" name="q14" value="C"> Material Strength</label>
-<label><input type="radio" name="q14" value="D"> Design</label>
+<div class="question-title">
+15. GPS technology is used in construction for
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+Survey and positioning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+Concrete mixing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+Painting work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+Brick manufacturing
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>15. Excavator is used for</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q15" value="A"> Painting</label>
-<label><input type="radio" name="q15" value="B"> Testing</label>
-<label><input type="radio" name="q15" value="C"> Finishing</label>
-<label><input type="radio" name="q15" value="D"> Earthwork</label>
+<div class="question-title">
+16. Safety management in construction helps to
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Prevent accidents
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Increase risk
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Reduce quality
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Delay work
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>16. Modern construction saves</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q16" value="A"> Time</label>
-<label><input type="radio" name="q16" value="B"> Colour</label>
-<label><input type="radio" name="q16" value="C"> Time and Labour</label>
-<label><input type="radio" name="q16" value="D"> Height</label>
+<div class="question-title">
+17. Lightweight concrete is used to
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Reduce structural weight
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+Increase weight
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+Reduce strength always
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Replace all materials
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>17. Green construction reduces</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q17" value="A"> Environmental Impact</label>
-<label><input type="radio" name="q17" value="B"> Strength</label>
-<label><input type="radio" name="q17" value="C"> Safety</label>
-<label><input type="radio" name="q17" value="D"> Quality</label>
+<div class="question-title">
+18. Drone technology in construction is used for
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Site monitoring and survey
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Concrete mixing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+Brick making
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Painting walls
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>18. Heavy equipment is used for</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q18" value="A"> Decoration</label>
-<label><input type="radio" name="q18" value="B"> Construction Work</label>
-<label><input type="radio" name="q18" value="C"> Painting</label>
-<label><input type="radio" name="q18" value="D"> Cleaning</label>
+<div class="question-title">
+19. Sustainable construction focuses on
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Environmental protection
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Increasing pollution
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Material wastage
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+Unsafe work
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>19. Advanced technology improves</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q19" value="A"> Colour</label>
-<label><input type="radio" name="q19" value="B"> Height</label>
-<label><input type="radio" name="q19" value="C"> Cost Only</label>
-<label><input type="radio" name="q19" value="D"> Quality and Speed</label>
+<div class="question-title">
+20. Advanced construction technology provides
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Faster and efficient construction
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+Lower safety
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+Poor quality
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+More wastage
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>20. Modern construction aims for</h3>
+<input type="hidden" name="subject" value="Advanced Construction Technology">
 
-<label><input type="radio" name="q20" value="A"> Safe and Efficient Construction</label>
-<label><input type="radio" name="q20" value="B"> Decoration</label>
-<label><input type="radio" name="q20" value="C"> Higher Cost</label>
-<label><input type="radio" name="q20" value="D"> Slow Work</label>
-
-</div>
+<input type="hidden" name="semester" value="Semester 3">
 
 
-<input type="submit" class="submit" value="Submit Quiz">
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
 
 
 </form>
@@ -372,7 +794,6 @@ Semester 3 - Advanced Construction Technology Quiz
 </div>
 
 </div>
-
 
 </body>
 

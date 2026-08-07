@@ -2,30 +2,30 @@
 session_start();
 
 $_SESSION['subject'] = "Entrepreneurship Development And Startups";
-$_SESSION['semester'] = "Semester 5";
+$_SESSION['semester'] = "Semester 7";
 
-$_SESSION['answers']=array(
+$_SESSION['answers'] = array(
 
 1=>'A',
 2=>'B',
 3=>'C',
-4=>'D',
-5=>'A',
+4=>'A',
+5=>'D',
 6=>'B',
-7=>'C',
-8=>'D',
-9=>'A',
+7=>'A',
+8=>'C',
+9=>'D',
 10=>'B',
-11=>'C',
-12=>'D',
-13=>'A',
-14=>'B',
-15=>'C',
-16=>'D',
+11=>'A',
+12=>'C',
+13=>'B',
+14=>'A',
+15=>'D',
+16=>'C',
 17=>'A',
 18=>'B',
-19=>'C',
-20=>'D'
+19=>'D',
+20=>'A'
 
 );
 
@@ -51,243 +51,794 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
+
 background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
 color:white;
 min-height:100vh;
 padding:40px 20px;
+display:flex;
+justify-content:center;
+
 }
 
 .container{
-max-width:900px;
-margin:auto;
+
+width:750px;
+max-width:100%;
+
 }
+
 
 .heading{
+
 text-align:center;
-font-size:42px;
+font-size:35px;
+font-weight:800;
 color:#38bdf8;
-margin-bottom:30px;
+margin-bottom:10px;
+
 }
+
+
+.subheading{
+
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
+
+}
+
 
 .card{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
-}
 
-.question{
 background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:25px;
+
+}
+
+
+.question-card{
+
+background:rgba(255,255,255,0.04);
 padding:20px;
-margin-bottom:20px;
 border-radius:15px;
+margin-bottom:25px;
+
 }
 
-.question h3{
+
+.question-title{
+
 color:#38bdf8;
+font-size:18px;
+font-weight:bold;
 margin-bottom:15px;
+
 }
 
-label{
+
+.option-label{
+
 display:block;
-padding:8px;
+background:rgba(255,255,255,0.07);
+padding:12px;
+border-radius:10px;
+margin-bottom:10px;
+cursor:pointer;
+
 }
 
-.submit{
+
+.option-label:hover{
+
+background:rgba(255,255,255,0.15);
+
+}
+
+
+.option-label input{
+
+margin-right:10px;
+
+}
+
+
+.btn-submit{
+
 width:100%;
 padding:15px;
-background:#0d6efd;
-color:white;
 border:none;
 border-radius:30px;
+background:#0284c7;
+color:white;
 font-size:18px;
-cursor:pointer;
+font-weight:bold;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
+
 <h1 class="heading">
-Semester 6 - Entrepreneurship Development And Startups Quiz
+Entrepreneurship Development And Startups Quiz
 </h1>
+
+<p class="subheading">
+Test your knowledge about Entrepreneurship and Startup Concepts
+</p>
+
 
 <div class="card">
 
-<form action="quiz1.php" method="post">
 
-<div class="question">
-<h3>1. An entrepreneur is a person who</h3>
-<label><input type="radio" name="q1" value="A"> Starts and Manages a Business</label>
-<label><input type="radio" name="q1" value="B"> Only Invests Money</label>
-<label><input type="radio" name="q1" value="C"> Works as Employee Only</label>
-<label><input type="radio" name="q1" value="D"> Teaches in School</label>
+<form action="check_quiz.php" method="post">
+
+
+
+<!-- Q1 -->
+
+<div class="question-card">
+
+<div class="question-title">
+1. Entrepreneurship means
 </div>
 
-<div class="question">
-<h3>2. Startup means</h3>
-<label><input type="radio" name="q2" value="A"> Government Office</label>
-<label><input type="radio" name="q2" value="B"> New Business Venture</label>
-<label><input type="radio" name="q2" value="C"> Factory Building</label>
-<label><input type="radio" name="q2" value="D"> Bank Account</label>
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Starting and managing a new business
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+Only doing a job
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+Buying products only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+Saving money only
+</label>
+
 </div>
 
-<div class="question">
-<h3>3. Business plan is</h3>
-<label><input type="radio" name="q3" value="A"> Advertisement</label>
-<label><input type="radio" name="q3" value="B"> Report Card</label>
-<label><input type="radio" name="q3" value="C"> Roadmap for Business</label>
-<label><input type="radio" name="q3" value="D"> Tax Receipt</label>
+
+
+
+<!-- Q2 -->
+
+<div class="question-card">
+
+<div class="question-title">
+2. An entrepreneur is a person who
 </div>
 
-<div class="question">
-<h3>4. Market research helps in</h3>
-<label><input type="radio" name="q4" value="A"> Playing Games</label>
-<label><input type="radio" name="q4" value="B"> Decoration</label>
-<label><input type="radio" name="q4" value="C"> Travelling</label>
-<label><input type="radio" name="q4" value="D"> Understanding Customer Needs</label>
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+Works under others
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+Creates and manages a business
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Only invests money
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+Does nothing
+</label>
+
 </div>
 
-<div class="question">
-<h3>5. Innovation means</h3>
-<label><input type="radio" name="q5" value="A"> New Ideas and Improvements</label>
-<label><input type="radio" name="q5" value="B"> Copying Others</label>
-<label><input type="radio" name="q5" value="C"> Avoiding Changes</label>
-<label><input type="radio" name="q5" value="D"> Selling Assets</label>
+
+
+
+<!-- Q3 -->
+
+<div class="question-card">
+
+<div class="question-title">
+3. Startup is a company that focuses on
 </div>
 
-<div class="question">
-<h3>6. Capital is required for</h3>
-<label><input type="radio" name="q6" value="A"> Entertainment</label>
-<label><input type="radio" name="q6" value="B"> Starting Business Operations</label>
-<label><input type="radio" name="q6" value="C"> Holidays</label>
-<label><input type="radio" name="q6" value="D"> Sports</label>
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+Traditional methods only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Government work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Innovation and growth
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Personal activities
+</label>
+
 </div>
 
-<div class="question">
-<h3>7. Risk-taking is a quality of</h3>
-<label><input type="radio" name="q7" value="A"> Teacher</label>
-<label><input type="radio" name="q7" value="B"> Doctor</label>
-<label><input type="radio" name="q7" value="C"> Entrepreneur</label>
-<label><input type="radio" name="q7" value="D"> Clerk</label>
+
+
+
+<!-- Q4 -->
+
+<div class="question-card">
+
+<div class="question-title">
+4. The main objective of entrepreneurship is
 </div>
 
-<div class="question">
-<h3>8. SWOT analysis stands for</h3>
-<label><input type="radio" name="q8" value="A"> Sales, Work, Office, Trade</label>
-<label><input type="radio" name="q8" value="B"> Strong, Weak, Open, Trend</label>
-<label><input type="radio" name="q8" value="C"> Start, Work, Operate, Train</label>
-<label><input type="radio" name="q8" value="D"> Strengths, Weaknesses, Opportunities, Threats</label>
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Creating value through business
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Avoiding work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Copying others
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Stopping innovation
+</label>
+
 </div>
 
-<div class="question">
-<h3>9. Profit is</h3>
-<label><input type="radio" name="q9" value="A"> Income Minus Expenses</label>
-<label><input type="radio" name="q9" value="B"> Only Sales</label>
-<label><input type="radio" name="q9" value="C"> Only Expenses</label>
-<label><input type="radio" name="q9" value="D"> Tax</label>
+
+
+
+<!-- Q5 -->
+
+<div class="question-card">
+
+<div class="question-title">
+5. Business plan includes
 </div>
 
-<div class="question">
-<h3>10. Marketing helps to</h3>
-<label><input type="radio" name="q10" value="A"> Reduce Customers</label>
-<label><input type="radio" name="q10" value="B"> Promote Products and Services</label>
-<label><input type="radio" name="q10" value="C"> Close Business</label>
-<label><input type="radio" name="q10" value="D"> Increase Losses</label>
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Only company name
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Only advertisement
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Only investment
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Goals, strategies and financial details
+</label>
+
 </div>
 
-<div class="question">
-<h3>11. Startup India is an initiative of</h3>
-<label><input type="radio" name="q11" value="A"> Private Company</label>
-<label><input type="radio" name="q11" value="B"> NGO</label>
-<label><input type="radio" name="q11" value="C"> Government of India</label>
-<label><input type="radio" name="q11" value="D"> School</label>
+<!-- Q6 -->
+
+<div class="question-card">
+
+<div class="question-title">
+6. Innovation means
 </div>
 
-<div class="question">
-<h3>12. Financial planning helps in</h3>
-<label><input type="radio" name="q12" value="A"> Wasting Money</label>
-<label><input type="radio" name="q12" value="B"> Increasing Debt Only</label>
-<label><input type="radio" name="q12" value="C"> Ignoring Expenses</label>
-<label><input type="radio" name="q12" value="D"> Managing Business Funds</label>
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Copying existing ideas
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Introducing new ideas or methods
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Stopping development
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Reducing quality
+</label>
+
 </div>
 
-<div class="question">
-<h3>13. Business opportunity means</h3>
-<label><input type="radio" name="q13" value="A"> Chance to Start or Expand Business</label>
-<label><input type="radio" name="q13" value="B"> Holiday Trip</label>
-<label><input type="radio" name="q13" value="C"> Government Tax</label>
-<label><input type="radio" name="q13" value="D"> Business Loss</label>
+
+
+<!-- Q7 -->
+
+<div class="question-card">
+
+<div class="question-title">
+7. A startup requires
 </div>
 
-<div class="question">
-<h3>14. Leadership is important for</h3>
-<label><input type="radio" name="q14" value="A"> Avoiding Work</label>
-<label><input type="radio" name="q14" value="B"> Managing Team Effectively</label>
-<label><input type="radio" name="q14" value="C"> Increasing Errors</label>
-<label><input type="radio" name="q14" value="D"> Closing Business</label>
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Innovative idea and planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+No strategy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Only advertisement
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Only employees
+</label>
+
 </div>
 
-<div class="question">
-<h3>15. Customer satisfaction leads to</h3>
-<label><input type="radio" name="q15" value="A"> Business Failure</label>
-<label><input type="radio" name="q15" value="B"> Complaints Only</label>
-<label><input type="radio" name="q15" value="C"> Business Growth</label>
-<label><input type="radio" name="q15" value="D"> Market Loss</label>
+
+
+<!-- Q8 -->
+
+<div class="question-card">
+
+<div class="question-title">
+8. SWOT analysis includes
 </div>
 
-<div class="question">
-<h3>16. Entrepreneurship creates</h3>
-<label><input type="radio" name="q16" value="A"> Unemployment</label>
-<label><input type="radio" name="q16" value="B"> Losses</label>
-<label><input type="radio" name="q16" value="C"> Inflation Only</label>
-<label><input type="radio" name="q16" value="D"> Employment Opportunities</label>
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+Sales and profit only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+Marketing only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+Strengths, Weaknesses, Opportunities and Threats
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+Production only
+</label>
+
 </div>
 
-<div class="question">
-<h3>17. A successful entrepreneur should be</h3>
-<label><input type="radio" name="q17" value="A"> Creative and Confident</label>
-<label><input type="radio" name="q17" value="B"> Lazy</label>
-<label><input type="radio" name="q17" value="C"> Unorganized</label>
-<label><input type="radio" name="q17" value="D"> Irresponsible</label>
+
+
+<!-- Q9 -->
+
+<div class="question-card">
+
+<div class="question-title">
+9. Entrepreneurship helps in
 </div>
 
-<div class="question">
-<h3>18. Business ethics means</h3>
-<label><input type="radio" name="q18" value="A"> Breaking Rules</label>
-<label><input type="radio" name="q18" value="B"> Following Moral Principles in Business</label>
-<label><input type="radio" name="q18" value="C"> Avoiding Customers</label>
-<label><input type="radio" name="q18" value="D"> Increasing Costs</label>
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+Increasing unemployment
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+Stopping innovation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+Reducing business activities
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+Creating employment opportunities
+</label>
+
 </div>
 
-<div class="question">
-<h3>19. Startup funding can come from</h3>
-<label><input type="radio" name="q19" value="A"> Customers Only</label>
-<label><input type="radio" name="q19" value="B"> Employees Only</label>
-<label><input type="radio" name="q19" value="C"> Investors and Banks</label>
-<label><input type="radio" name="q19" value="D"> Schools Only</label>
+
+
+<!-- Q10 -->
+
+<div class="question-card">
+
+<div class="question-title">
+10. Funding for startups can be obtained from
 </div>
 
-<div class="question">
-<h3>20. Entrepreneurship contributes to</h3>
-<label><input type="radio" name="q20" value="A"> Economic Development</label>
-<label><input type="radio" name="q20" value="B"> Business Closure</label>
-<label><input type="radio" name="q20" value="C"> Unemployment</label>
-<label><input type="radio" name="q20" value="D"> Market Decline</label>
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Only friends
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+Investors and financial institutions
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Only customers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+No source
+</label>
+
 </div>
 
-<input type="submit" class="submit" value="Submit Quiz">
+
+
+<!-- Q11 -->
+
+<div class="question-card">
+
+<div class="question-title">
+11. Entrepreneurial skills include
+</div>
+
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+Leadership and decision making
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+Avoiding responsibility
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+Ignoring customers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+No planning
+</label>
+
+</div>
+
+
+
+<!-- Q12 -->
+
+<div class="question-card">
+
+<div class="question-title">
+12. Market research helps to
+</div>
+
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+Increase confusion
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+Avoid customers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Understand customer needs
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+Stop business
+</label>
+
+</div>
+
+
+
+<!-- Q13 -->
+
+<div class="question-card">
+
+<div class="question-title">
+13. A business model describes
+</div>
+
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Company colour
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+How a business creates and earns value
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Only employee details
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Only location
+</label>
+
+</div>
+
+
+
+<!-- Q14 -->
+
+<div class="question-card">
+
+<div class="question-title">
+14. Incubators provide support to
+</div>
+
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+New startups
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Old products only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+Customers only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Government offices
+</label>
+
+</div>
+
+<!-- Q15 -->
+
+<div class="question-card">
+
+<div class="question-title">
+15. Angel investors provide
+</div>
+
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+Training only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+Office space only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+Marketing only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+Financial support to startups
+</label>
+
+</div>
+
+
+
+<!-- Q16 -->
+
+<div class="question-card">
+
+<div class="question-title">
+16. Entrepreneurship development focuses on
+</div>
+
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Reducing business activities
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Avoiding risks
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Developing entrepreneurial abilities
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Stopping innovation
+</label>
+
+</div>
+
+
+
+<!-- Q17 -->
+
+<div class="question-card">
+
+<div class="question-title">
+17. Digital entrepreneurship uses
+</div>
+
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Digital technologies for business
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+Only manual work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+No technology
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Traditional methods only
+</label>
+
+</div>
+
+
+
+<!-- Q18 -->
+
+<div class="question-card">
+
+<div class="question-title">
+18. Business risk means
+</div>
+
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Guaranteed success
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Possibility of loss or failure
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+No uncertainty
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Fixed profit
+</label>
+
+</div>
+
+
+
+<!-- Q19 -->
+
+<div class="question-card">
+
+<div class="question-title">
+19. Startup ecosystem includes
+</div>
+
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Only entrepreneurs
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Only customers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Only investors
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+Entrepreneurs, investors and support organizations
+</label>
+
+</div>
+
+
+
+<!-- Q20 -->
+
+<div class="question-card">
+
+<div class="question-title">
+20. A successful entrepreneur should have
+</div>
+
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Creativity and leadership skills
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+No planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+Fear of change
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+Avoiding decisions
+</label>
+
+</div>
+
+
+
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
+
+
 
 </form>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </body>
-</html>
 
+</html>

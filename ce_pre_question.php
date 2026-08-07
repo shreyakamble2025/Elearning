@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<html>
 <html lang="en">
 <head>
-<title>Syllabus</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syllabus - LearnHub</title>
+<title>Previous Question Papers - LearnHub</title>
 
 <style>
-body{
-    font-family:Arial;
-    background:#f4f6f9;
-    margin:0;
-}
-.container{
-    width:90%;
-    margin:30px auto;
   /* --- CSS RESET & BASE STYLES --- */
   * {
     margin: 0;
@@ -49,7 +39,7 @@ body{
   .header h1 {
     font-size: 2rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    background: linear-gradient(135deg, #4ade80, #38bdf8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px;
@@ -64,8 +54,8 @@ body{
     align-items: center;
   }
 
-  /* --- SYLLABUS GRID --- */
-  .syllabus-grid {
+  /* --- SEMESTER GRID --- */
+  .qp-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
@@ -99,15 +89,15 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 70%);
+    background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
   .card:hover {
     transform: translateY(-6px);
-    border-color: rgba(56, 189, 248, 0.4);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+    border-color: rgba(34, 197, 94, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 197, 94, 0.15);
   }
 
   .card:hover::before {
@@ -127,20 +117,20 @@ body{
     display: inline-block;
     width: 100%;
     padding: 12px 20px;
-    background: linear-gradient(135deg, #0d6efd, #0284c7);
+    background: linear-gradient(135deg, #22c55e, #16a34a);
     color: white;
     text-decoration: none;
     border-radius: 30px;
     font-size: 0.95rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
     transition: all 0.3s ease;
     z-index: 1;
   }
 
   .card a:hover {
-    background: linear-gradient(135deg, #2563eb, #0369a1);
-    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
     transform: translateY(-2px);
   }
 
@@ -169,96 +159,54 @@ body{
     .header h1 {
       font-size: 1.5rem;
     }
-    .syllabus-grid {
+    .qp-grid {
       grid-template-columns: 1fr;
     }
   }
-  .back-btn {
-    position: absolute;
-    left: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px 20px;
-    background: rgba(56, 189, 248, 0.15);
-    color: #38bdf8;
-    text-decoration: none;
-    border: 1px solid rgba(56, 189, 248, 0.4);
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-.card{
-    background:white;
-    padding:20px;
-    margin-bottom:15px;
-    border-radius:8px;
-    box-shadow:0 2px 8px rgba(0,0,0,.2);
-.back-container{
-   width: min(95%,900px);
-    margin: 20px auto 0;
-}
-.card a{
-    text-decoration:none;
-    background:#0d6efd;
-    color:white;
-    padding:10px 20px;
-    border-radius:5px;
-.back-btn:hover {
-    background: #38bdf8;
-    color: #0f172a;
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
-}
 </style>
-
 </head>
 <body>
 
-<div class="container">
 <header class="header">
-	  <div class="back-container">
-    <a href="ce.html" class="back-btn">&#8592; Back</a>
-</div>
-  <h1>Civil Engineering Syllabus</h1>
+  <h1>Previous Question Papers</h1>
 </header>
 
-<h1>Civil Engineering Syllabus</h1>
 <main class="container">
 
-<div class="card">
-<h3>Semester 1</h3>
-<a href="ce-view-s1.php" target="_blank">View Syllabus</a>
-</div>
+  <div class="qp-grid">
 
-<div class="card">
-<h3>Semester 2</h3>
-<a href="ce-view-s2.php" target="_blank">View Syllabus</a>
-</div>
-    
+    <div class="card">
+      <h3>Semester 1</h3>
+      <a href="ce_question_papers_sem1.php" target="_blank">Open Question Paper</a>
+    </div>
 
-<div class="card">
-<h3>Semester 3</h3>
-<a href="ce-view-s3.php" target="_blank">View Syllabus</a>
-</div>
-    
+    <div class="card">
+      <h3>Semester 2</h3>
+      <a href="ce_question_papers_sem2.php" target="_blank">Open Question Paper</a>
+    </div>
 
-<div class="card">
-<h3>Semester 4</h3>
-<a href="ce-view-s4.php" target="_blank">View Syllabus</a>
-</div>
-    
+    <div class="card">
+      <h3>Semester 3</h3>
+      <a href="ce_question_papers_sem3.php" target="_blank">Open Question Paper</a>
+    </div>
 
-<div class="card">
-<h3>Semester 5</h3>
-<a href="ce-view-s5.php" target="_blank">View Syllabus</a>
-</div>
-    
+    <div class="card">
+      <h3>Semester 4</h3>
+      <a href="ce_question_papers_sem4.php" target="_blank">Open Question Paper</a>
+    </div>
 
-<div class="card">
-<h3>Semester 6</h3>
-<a href="ce-view-s6.php" target="_blank">View Syllabus</a>
-</div>
-    
+    <div class="card">
+      <h3>Semester 5</h3>
+      <a href="ce_question_papers_sem5.php" target="_blank">Open Question Paper</a>
+    </div>
+
+    <div class="card">
+      <h3>Semester 6</h3>
+      <a href="ce_question_papers_sem6.php" target="_blank">Open Question Paper</a>
+    </div>
+
+  </div>
+
 </main>
 
 </body>

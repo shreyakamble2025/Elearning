@@ -1,37 +1,35 @@
 <?php
 session_start();
 
-$_SESSION['subject'] = "Strength of Materials";
-$_SESSION['semester'] = "Semester 3";
-
+$_SESSION['subject'] = "Strength Of Materials";
+$_SESSION['semester'] = "Semester 2";
 
 $_SESSION['answers']=array(
 
 1=>'B',
 2=>'A',
-3=>'C',
-4=>'D',
-5=>'A',
-6=>'B',
-7=>'C',
-8=>'A',
-9=>'D',
-10=>'B',
-11=>'A',
+3=>'D',
+4=>'C',
+5=>'B',
+6=>'A',
+7=>'D',
+8=>'C',
+9=>'B',
+10=>'A',
+11=>'D',
 12=>'C',
 13=>'B',
 14=>'A',
 15=>'D',
 16=>'C',
-17=>'A',
-18=>'B',
+17=>'B',
+18=>'A',
 19=>'D',
-20=>'A'
+20=>'B'
 
 );
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +39,7 @@ $_SESSION['answers']=array(
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Strength of Materials Quiz - LearnHub</title>
-
+<title>Strength Of Materials Quiz - LearnHub</title>
 
 <style>
 
@@ -53,675 +50,712 @@ box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
 }
 
-
 body{
-
 background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
 color:white;
 min-height:100vh;
 padding:40px 20px;
-
 }
-
 
 .container{
-
 max-width:900px;
 margin:auto;
-
 }
 
-
 .heading{
-
 text-align:center;
 font-size:42px;
 color:#38bdf8;
-margin-bottom:30px;
-
+margin-bottom:10px;
 }
 
+.subheading{
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
+}
 
 .card{
-
 background:rgba(255,255,255,0.06);
 backdrop-filter:blur(15px);
 padding:30px;
 border-radius:20px;
-
 }
 
-
-.question{
-
+.question-card{
 background:rgba(255,255,255,0.05);
 padding:20px;
 margin-bottom:20px;
 border-radius:15px;
-
 }
 
-
-.question h3{
-
+.question-title{
 color:#38bdf8;
 margin-bottom:15px;
-
+font-size:18px;
 }
 
+.options-grid{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
 
-label{
-
+.option-label{
 display:block;
-padding:8px;
-
+padding:10px;
+background:rgba(255,255,255,0.05);
+border-radius:10px;
+cursor:pointer;
 }
 
+.option-label input{
+margin-right:10px;
+}
 
-.submit{
-
+.btn-submit{
 width:100%;
 padding:15px;
-background:#0d6efd;
-color:white;
 border:none;
 border-radius:30px;
+background:#0d6efd;
+color:white;
 font-size:18px;
 cursor:pointer;
-
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-
 <h1 class="heading">
-Semester 3 - Strength of Materials Quiz
+Strength Of Materials Quiz
 </h1>
 
+<p class="subheading">
+Test your knowledge of Strength Of Materials.
+</p>
 
 <div class="card">
 
+<form action="check_quiz.php" method="post">
 
-<form action="quiz1.php" method="post">
+<div class="question-card">
+<div class="question-title">
+1. Stress is defined as
+</div>
 
+<div class="options-grid">
 
-<div class="question">
-
-<h3>1. Strength of Materials deals with</h3>
-
-<label>
-<input type="radio" name="q1" value="A">
-Electrical Properties
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Force × Area
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q1" value="B">
-Strength and Behaviour of Materials
+Force / Area
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q1" value="C">
-Chemical Reaction
+Area / Force
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q1" value="D">
-Heat Transfer
+Force + Area
 </label>
 
 </div>
+</div>
 
+<div class="question-card">
+<div class="question-title">
+2. SI unit of Stress is
+</div>
 
+<div class="options-grid">
 
-<div class="question">
-
-<h3>2. Unit of Stress is</h3>
-
-<label>
-<input type="radio" name="q2" value="A">
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
 Pascal
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q2" value="B">
-Joule
-</label>
-
-<label>
-<input type="radio" name="q2" value="C">
 Newton
 </label>
 
-<label>
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Joule
+</label>
+
+<label class="option-label">
 <input type="radio" name="q2" value="D">
 Watt
 </label>
 
 </div>
+</div>
 
+<div class="question-card">
+<div class="question-title">
+3. Strain is
+</div>
 
+<div class="options-grid">
 
-<div class="question">
-
-<h3>3. Stress is defined as</h3>
-
-<label>
-<input type="radio" name="q3" value="A">
-Force × Area
-</label>
-
-<label>
-<input type="radio" name="q3" value="B">
-Mass / Volume
-</label>
-
-<label>
-<input type="radio" name="q3" value="C">
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
 Force / Area
 </label>
 
-<label>
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Stress × Area
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Load / Volume
+</label>
+
+<label class="option-label">
 <input type="radio" name="q3" value="D">
-Work / Time
+Change in Length / Original Length
 </label>
 
 </div>
+</div>
 
+<div class="question-card">
+<div class="question-title">
+4. SI unit of Strain is
+</div>
 
+<div class="options-grid">
 
-<div class="question">
-
-<h3>4. Strain is</h3>
-
-<label>
-<input type="radio" name="q4" value="A">
-Force
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Pascal
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q4" value="B">
-Stress
+Newton
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q4" value="C">
-Load
+No Unit
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q4" value="D">
-Deformation per Unit Length
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>5. Hooke's Law is valid up to</h3>
-
-<label>
-<input type="radio" name="q5" value="A">
-Elastic Limit
-</label>
-
-<label>
-<input type="radio" name="q5" value="B">
-Breaking Point
-</label>
-
-<label>
-<input type="radio" name="q5" value="C">
-Plastic Limit
-</label>
-
-<label>
-<input type="radio" name="q5" value="D">
-Failure Point
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>6. Young's Modulus is the ratio of</h3>
-
-<label>
-<input type="radio" name="q6" value="A">
-Load and Area
-</label>
-
-<label>
-<input type="radio" name="q6" value="B">
-Stress and Strain
-</label>
-
-<label>
-<input type="radio" name="q6" value="C">
-Force and Distance
-</label>
-
-<label>
-<input type="radio" name="q6" value="D">
-Work and Time
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>7. Tensile stress occurs due to</h3>
-
-<label>
-<input type="radio" name="q7" value="A">
-Compression
-</label>
-
-<label>
-<input type="radio" name="q7" value="B">
-Twisting
-</label>
-
-<label>
-<input type="radio" name="q7" value="C">
-Pulling Force
-</label>
-
-<label>
-<input type="radio" name="q7" value="D">
-Heating
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>8. Compression stress acts due to</h3>
-
-<label>
-<input type="radio" name="q8" value="A">
-Pushing Force
-</label>
-
-<label>
-<input type="radio" name="q8" value="B">
-Pulling Force
-</label>
-
-<label>
-<input type="radio" name="q8" value="C">
-Rotation
-</label>
-
-<label>
-<input type="radio" name="q8" value="D">
-Temperature
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>9. Bending moment unit is</h3>
-
-<label>
-<input type="radio" name="q9" value="A">
-N
-</label>
-
-<label>
-<input type="radio" name="q9" value="B">
-Pa
-</label>
-
-<label>
-<input type="radio" name="q9" value="C">
 Joule
 </label>
 
-<label>
-<input type="radio" name="q9" value="D">
-N-m
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+5. Hooke's Law states that stress is directly proportional to
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Load
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Strain
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Area
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Volume
 </label>
 
 </div>
-
-
-
-<div class="question">
-
-<h3>10. Beam is mainly subjected to</h3>
-
-<label>
-<input type="radio" name="q10" value="A">
-Tension
-</label>
-
-<label>
-<input type="radio" name="q10" value="B">
-Bending
-</label>
-
-<label>
-<input type="radio" name="q10" value="C">
-Heating
-</label>
-
-<label>
-<input type="radio" name="q10" value="D">
-Expansion
-</label>
-
 </div>
 
-<div class="question">
-
-<h3>11. Shear stress is caused by</h3>
-
-<label>
-<input type="radio" name="q11" value="A">
-Tangential Force
-</label>
-
-<label>
-<input type="radio" name="q11" value="B">
-Vertical Load
-</label>
-
-<label>
-<input type="radio" name="q11" value="C">
-Temperature
-</label>
-
-<label>
-<input type="radio" name="q11" value="D">
-Weight
-</label>
-
+<div class="question-card">
+<div class="question-title">
+6. Modulus of Elasticity is the ratio of
 </div>
 
+<div class="options-grid">
 
-
-<div class="question">
-
-<h3>12. Moment of inertia depends on</h3>
-
-<label>
-<input type="radio" name="q12" value="A">
-Material Colour
-</label>
-
-<label>
-<input type="radio" name="q12" value="B">
-Weight
-</label>
-
-<label>
-<input type="radio" name="q12" value="C">
-Shape of Section
-</label>
-
-<label>
-<input type="radio" name="q12" value="D">
-Temperature
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>13. Neutral axis in a beam has</h3>
-
-<label>
-<input type="radio" name="q13" value="A">
-Maximum Stress
-</label>
-
-<label>
-<input type="radio" name="q13" value="B">
-Zero Stress
-</label>
-
-<label>
-<input type="radio" name="q13" value="C">
-Maximum Load
-</label>
-
-<label>
-<input type="radio" name="q13" value="D">
-Maximum Strain
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>14. Torsion is related to</h3>
-
-<label>
-<input type="radio" name="q14" value="A">
-Twisting
-</label>
-
-<label>
-<input type="radio" name="q14" value="B">
-Bending
-</label>
-
-<label>
-<input type="radio" name="q14" value="C">
-Compression
-</label>
-
-<label>
-<input type="radio" name="q14" value="D">
-Expansion
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>15. Elasticity is the property of material to</h3>
-
-<label>
-<input type="radio" name="q15" value="A">
-Break Easily
-</label>
-
-<label>
-<input type="radio" name="q15" value="B">
-Increase Weight
-</label>
-
-<label>
-<input type="radio" name="q15" value="C">
-Change Colour
-</label>
-
-<label>
-<input type="radio" name="q15" value="D">
-Regain Original Shape
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>16. The ratio of lateral strain to longitudinal strain is called</h3>
-
-<label>
-<input type="radio" name="q16" value="A">
-Young's Modulus
-</label>
-
-<label>
-<input type="radio" name="q16" value="B">
-Bulk Modulus
-</label>
-
-<label>
-<input type="radio" name="q16" value="C">
-Poisson's Ratio
-</label>
-
-<label>
-<input type="radio" name="q16" value="D">
-Shear Modulus
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>17. Column is mainly subjected to</h3>
-
-<label>
-<input type="radio" name="q17" value="A">
-Compression
-</label>
-
-<label>
-<input type="radio" name="q17" value="B">
-Tension
-</label>
-
-<label>
-<input type="radio" name="q17" value="C">
-Torsion
-</label>
-
-<label>
-<input type="radio" name="q17" value="D">
-Shear
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>18. Factor of safety is the ratio of</h3>
-
-<label>
-<input type="radio" name="q18" value="A">
-Working Stress / Failure Stress
-</label>
-
-<label>
-<input type="radio" name="q18" value="B">
-Failure Stress / Working Stress
-</label>
-
-<label>
-<input type="radio" name="q18" value="C">
-Load / Area
-</label>
-
-<label>
-<input type="radio" name="q18" value="D">
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
 Stress / Strain
 </label>
 
-</div>
-
-
-
-<div class="question">
-
-<h3>19. A simply supported beam has</h3>
-
-<label>
-<input type="radio" name="q19" value="A">
-Two Supports
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Strain / Stress
 </label>
 
-<label>
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Load / Area
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Area / Load
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+7. SI unit of Modulus of Elasticity is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Newton
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+Joule
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Watt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Pascal
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+8. Tensile stress acts
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+In compression
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+In bending
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+In tension
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+In shear
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+9. Compressive stress acts
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+In tension
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+In compression
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+In torsion
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+In bending
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+10. Shear stress acts
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Tangentially
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+Perpendicular
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Vertically
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+Horizontally only
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+11. Factor of Safety is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+Working Stress / Ultimate Stress
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+Load / Area
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+Stress / Strain
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+Ultimate Stress / Working Stress
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+12. Poisson's Ratio is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+Longitudinal Strain / Lateral Strain
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+Stress / Strain
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Lateral Strain / Longitudinal Strain
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+Load / Area
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+13. Unit of Load is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Pascal
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+Newton
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Joule
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Watt
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+14. A ductile material undergoes large
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+Deformation before failure
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Cracking immediately
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+No deformation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Shrinkage only
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+15. Mild steel is a
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+Brittle material
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+Elastic material
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+Plastic material
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+Ductile material
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+16. Brittle materials fail with
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Large deformation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Plastic flow
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Gradual elongation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Little or no deformation
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+17. Resilience is the ability of a material to
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Absorb energy within elastic limit
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+Resist corrosion
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+Increase weight
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Reduce stress
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+18. Hardness is the resistance to
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Indentation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Expansion
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+Compression
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Bending
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+19. Toughness is the ability to
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Conduct heat
+</label>
+
+<label class="option-label">
 <input type="radio" name="q19" value="B">
-No Support
+Resist corrosion
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q19" value="C">
-One Support
+Absorb energy before fracture
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q19" value="D">
-Fixed Support
+Increase elasticity
 </label>
 
 </div>
+</div>
 
+<div class="question-card">
+<div class="question-title">
+20. Unit of Young's Modulus is
+</div>
 
+<div class="options-grid">
 
-<div class="question">
-
-<h3>20. The maximum stress before failure is called</h3>
-
-<label>
-<input type="radio" name="q20" value="A">
-Ultimate Stress
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Newton
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q20" value="B">
-Working Stress
+Pascal
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q20" value="C">
-Elastic Stress
+Joule
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q20" value="D">
-Safe Stress
+Watt
 </label>
 
 </div>
+</div>
 
+<input type="hidden" name="subject" value="Strength Of Materials">
+<input type="hidden" name="semester" value="Semester 2">
 
-
-<input type="submit" class="submit" value="Submit Quiz">
-
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
 
 </form>
 
-
 </div>
 
 </div>
-
 
 </body>
-
 </html>

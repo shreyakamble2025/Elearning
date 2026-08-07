@@ -1,11 +1,10 @@
-
 <?php
 session_start();
 
 $_SESSION['subject'] = "Utilization Of Electrical Energy";
-$_SESSION['semester'] = "Semester 5";
+$_SESSION['semester'] = "Semester 1";
 
-$_SESSION['answers']=array(
+$_SESSION['answers'] = array(
 
 1=>'A',
 2=>'B',
@@ -48,61 +47,102 @@ $_SESSION['answers']=array(
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
-color:white;
+background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 35%,#311042 70%,#0f172a 100%);
+background-attachment:fixed;
+color:#f8fafc;
 min-height:100vh;
 padding:40px 20px;
+display:flex;
+justify-content:center;
 }
 
 .container{
-max-width:900px;
-margin:auto;
+width:min(100%,750px);
+}
+
+.header-group{
+text-align:center;
+margin-bottom:35px;
 }
 
 .heading{
-text-align:center;
-font-size:42px;
-color:#38bdf8;
-margin-bottom:30px;
+font-size:2.2rem;
+font-weight:800;
+background:linear-gradient(135deg,#38bdf8,#818cf8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:8px;
+}
+
+.subheading{
+color:#94a3b8;
+font-size:0.95rem;
 }
 
 .card{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
+background:rgba(255,255,255,0.03);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:24px;
+padding:36px 30px;
+box-shadow:0 12px 40px rgba(0,0,0,0.45);
 }
 
-.question{
-background:rgba(255,255,255,0.05);
-padding:20px;
-margin-bottom:20px;
-border-radius:15px;
+.question-card{
+background:rgba(255,255,255,0.02);
+border:1px solid rgba(255,255,255,0.07);
+border-radius:16px;
+padding:22px 20px;
+margin-bottom:24px;
 }
 
-.question h3{
+.question-title{
+font-size:1.05rem;
+font-weight:600;
 color:#38bdf8;
-margin-bottom:15px;
+margin-bottom:16px;
 }
 
-label{
-display:block;
-padding:8px;
+.options-grid{
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
-.submit{
+.option-label{
+display:flex;
+align-items:center;
+padding:12px 16px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.option-label:hover{
+background:rgba(255,255,255,0.08);
+}
+
+.option-label input{
+margin-right:12px;
+}
+
+.btn-submit{
 width:100%;
-padding:15px;
-background:#0d6efd;
-color:white;
+padding:16px;
 border:none;
 border-radius:30px;
-font-size:18px;
+background:linear-gradient(135deg,#0d6efd,#0284c7);
+color:white;
+font-size:1.05rem;
+font-weight:700;
 cursor:pointer;
+margin-top:10px;
 }
 
 </style>
@@ -113,175 +153,443 @@ cursor:pointer;
 
 <div class="container">
 
-<h1 class="heading">
-Semester 5 - Utilization Of Electrical Energy Quiz
-</h1>
+<div class="header-group">
+<h1 class="heading">Utilization Of Electrical Energy Quiz</h1>
+<p class="subheading">
+Test your knowledge across Utilization Of Electrical Energy concepts.
+</p>
+</div>
 
 <div class="card">
 
-<form action="quiz1.php" method="post">
+<form action="check_quiz.php" method="post">
 
-<div class="question">
-<h3>1. Electrical energy is mainly utilized for</h3>
-<label><input type="radio" name="q1" value="A"> Lighting, Heating and Power</label>
-<label><input type="radio" name="q1" value="B"> Painting</label>
-<label><input type="radio" name="q1" value="C"> Decoration</label>
-<label><input type="radio" name="q1" value="D"> Plumbing</label>
+<div class="question-card">
+<div class="question-title">
+1. Electrical energy is mainly converted into
 </div>
 
-<div class="question">
-<h3>2. Electric heating works on</h3>
-<label><input type="radio" name="q2" value="A"> Magnetic Effect</label>
-<label><input type="radio" name="q2" value="B"> Heating Effect of Current</label>
-<label><input type="radio" name="q2" value="C"> Chemical Effect</label>
-<label><input type="radio" name="q2" value="D"> Electrolysis</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Mechanical Energy Only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+Heat, Light and Mechanical Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+Nuclear Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+Solar Energy
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>3. Incandescent lamp uses</h3>
-<label><input type="radio" name="q3" value="A"> LED</label>
-<label><input type="radio" name="q3" value="B"> Gas Discharge</label>
-<label><input type="radio" name="q3" value="C"> Tungsten Filament</label>
-<label><input type="radio" name="q3" value="D"> Laser</label>
+<div class="question-card">
+<div class="question-title">
+2. Electric iron works on
 </div>
 
-<div class="question">
-<h3>4. Electric traction is used in</h3>
-<label><input type="radio" name="q4" value="A"> Houses</label>
-<label><input type="radio" name="q4" value="B"> Factories</label>
-<label><input type="radio" name="q4" value="C"> Street Lights</label>
-<label><input type="radio" name="q4" value="D"> Electric Trains</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+Heating Effect of Current
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+Chemical Effect
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Magnetic Effect
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+Electrostatic Effect
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>5. LED lamps are preferred because they are</h3>
-<label><input type="radio" name="q5" value="A"> Energy Efficient</label>
-<label><input type="radio" name="q5" value="B"> Expensive</label>
-<label><input type="radio" name="q5" value="C"> Heavy</label>
-<label><input type="radio" name="q5" value="D"> Fragile</label>
+<div class="question-card">
+<div class="question-title">
+3. The device used for room cooling is
 </div>
 
-<div class="question">
-<h3>6. Electric furnace is used for</h3>
-<label><input type="radio" name="q6" value="A"> Cooling</label>
-<label><input type="radio" name="q6" value="B"> Heating and Melting</label>
-<label><input type="radio" name="q6" value="C"> Lighting</label>
-<label><input type="radio" name="q6" value="D"> Measuring</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+Heater
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Geyser
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Oven
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Air Conditioner
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>7. Unit of electrical energy is</h3>
-<label><input type="radio" name="q7" value="A"> Volt</label>
-<label><input type="radio" name="q7" value="B"> Ampere</label>
-<label><input type="radio" name="q7" value="C"> kWh</label>
-<label><input type="radio" name="q7" value="D"> Ohm</label>
+<div class="question-card">
+<div class="question-title">
+4. Electric lamp converts electrical energy into
 </div>
 
-<div class="question">
-<h3>8. Electric welding uses</h3>
-<label><input type="radio" name="q8" value="A"> Cooling Effect</label>
-<label><input type="radio" name="q8" value="B"> Magnetic Effect</label>
-<label><input type="radio" name="q8" value="C"> Chemical Effect</label>
-<label><input type="radio" name="q8" value="D"> Heat Produced by Arc</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Sound Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Chemical Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Light Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Nuclear Energy
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>9. Domestic energy meter records</h3>
-<label><input type="radio" name="q9" value="A"> Energy Consumption</label>
-<label><input type="radio" name="q9" value="B"> Voltage Only</label>
-<label><input type="radio" name="q9" value="C"> Current Only</label>
-<label><input type="radio" name="q9" value="D"> Frequency</label>
+<div class="question-card">
+<div class="question-title">
+5. Induction furnace is used for
 </div>
 
-<div class="question">
-<h3>10. Electric iron converts electrical energy into</h3>
-<label><input type="radio" name="q10" value="A"> Light</label>
-<label><input type="radio" name="q10" value="B"> Heat</label>
-<label><input type="radio" name="q10" value="C"> Sound</label>
-<label><input type="radio" name="q10" value="D"> Chemical Energy</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Cooling
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Melting Metals
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Lighting
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Ventilation
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>11. Fluorescent lamp operates using</h3>
-<label><input type="radio" name="q11" value="A"> Filament Only</label>
-<label><input type="radio" name="q11" value="B"> Resistance Heating</label>
-<label><input type="radio" name="q11" value="C"> Gas Discharge</label>
-<label><input type="radio" name="q11" value="D"> Solar Cell</label>
+<div class="question-card">
+<div class="question-title">
+6. Electric heating is based on
 </div>
 
-<div class="question">
-<h3>12. Electric traction provides</h3>
-<label><input type="radio" name="q12" value="A"> Water Supply</label>
-<label><input type="radio" name="q12" value="B"> Communication</label>
-<label><input type="radio" name="q12" value="C"> Lighting</label>
-<label><input type="radio" name="q12" value="D"> Transportation</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Faraday's Law
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Joule's Law
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Ohm's Law
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Lenz's Law
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>13. Induction heating works on</h3>
-<label><input type="radio" name="q13" value="A"> Electromagnetic Induction</label>
-<label><input type="radio" name="q13" value="B"> Chemical Action</label>
-<label><input type="radio" name="q13" value="C"> Radiation Only</label>
-<label><input type="radio" name="q13" value="D"> Electrolysis</label>
+<div class="question-card">
+<div class="question-title">
+7. An electric iron converts electrical energy into
 </div>
 
-<div class="question">
-<h3>14. Microwave oven uses</h3>
-<label><input type="radio" name="q14" value="A"> Infrared Rays</label>
-<label><input type="radio" name="q14" value="B"> Microwaves</label>
-<label><input type="radio" name="q14" value="C"> Laser Rays</label>
-<label><input type="radio" name="q14" value="D"> UV Rays</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Mechanical Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+Chemical Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Heat Energy
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Sound Energy
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>15. Electric lamp efficiency is measured in</h3>
-<label><input type="radio" name="q15" value="A"> Watt</label>
-<label><input type="radio" name="q15" value="B"> Volt</label>
-<label><input type="radio" name="q15" value="C"> Lumens per Watt</label>
-<label><input type="radio" name="q15" value="D"> Ampere</label>
+<div class="question-card">
+<div class="question-title">
+8. Electric welding is mainly used for
 </div>
 
-<div class="question">
-<h3>16. Electric cooking appliances mainly use</h3>
-<label><input type="radio" name="q16" value="A"> Magnetic Effect</label>
-<label><input type="radio" name="q16" value="B"> Chemical Effect</label>
-<label><input type="radio" name="q16" value="C"> Light Effect</label>
-<label><input type="radio" name="q16" value="D"> Heating Effect</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+Cutting Wood
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+Joining Metals
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+Measuring Current
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+Generating Power
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>17. Street lighting improves</h3>
-<label><input type="radio" name="q17" value="A"> Safety and Visibility</label>
-<label><input type="radio" name="q17" value="B"> Temperature</label>
-<label><input type="radio" name="q17" value="C"> Rainfall</label>
-<label><input type="radio" name="q17" value="D"> Frequency</label>
+<div class="question-card">
+<div class="question-title">
+9. Domestic electric supply in India is generally
 </div>
 
-<div class="question">
-<h3>18. Electric motors convert</h3>
-<label><input type="radio" name="q18" value="A"> Mechanical to Electrical</label>
-<label><input type="radio" name="q18" value="B"> Electrical to Mechanical</label>
-<label><input type="radio" name="q18" value="C"> Heat to Electrical</label>
-<label><input type="radio" name="q18" value="D"> Chemical to Electrical</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+110 V
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+150 V
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+400 V
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+230 V
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>19. Energy conservation helps in</h3>
-<label><input type="radio" name="q19" value="A"> Increasing Losses</label>
-<label><input type="radio" name="q19" value="B"> Higher Consumption</label>
-<label><input type="radio" name="q19" value="C"> Saving Electrical Energy</label>
-<label><input type="radio" name="q19" value="D"> Voltage Drop</label>
+<div class="question-card">
+<div class="question-title">
+10. Electric traction is used in
 </div>
 
-<div class="question">
-<h3>20. Utilization of electrical energy improves</h3>
-<label><input type="radio" name="q20" value="A"> Pollution</label>
-<label><input type="radio" name="q20" value="B"> Efficiency and Comfort</label>
-<label><input type="radio" name="q20" value="C"> Power Loss</label>
-<label><input type="radio" name="q20" value="D"> Cost Only</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Fan
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+Electric Train
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Transformer
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+Generator
+</label>
+</div>
 </div>
 
-<input type="submit" class="submit" value="Submit Quiz">
+<div class="question-card">
+<div class="question-title">
+16. Electric traction system is widely used in
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Railways
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Water Pumps
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Transformers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Generators
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+17. CFL stands for
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Compact Fluorescent Lamp
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+Current Flow Lamp
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+Compact Flow Light
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Current Fluorescent Light
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+18. Electric heating element is generally made of
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Copper
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Nichrome
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+Aluminium
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Silver
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+19. Which appliance is used for room cooling?
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Heater
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Iron
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Refrigerator
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+Toaster
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+20. Induction heating works on the principle of
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Electromagnetic Induction
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+Electrolysis
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+Capacitance
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+Resistance Only
+</label>
+</div>
+</div>
+
+<input type="hidden" name="subject" value="D.C. Machines And Transformers">
+<input type="hidden" name="semester" value="Semester 1">
+
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
 
 </form>
 
@@ -291,4 +599,3 @@ Semester 5 - Utilization Of Electrical Energy Quiz
 
 </body>
 </html>
-

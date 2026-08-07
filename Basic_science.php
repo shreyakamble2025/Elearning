@@ -1,353 +1,170 @@
 <?php
 include "connection.php";
-error_reporting(0);
-
-$syllabus_link = "#";
-$notes_link = "#";
-
 
 $syllabus_query = mysqli_query($conn, "SELECT material_link FROM study_material WHERE material_type='syllabus' LIMIT 1");
+$syllabus_row = mysqli_fetch_assoc($syllabus_query);
 
-if($syllabus_query && mysqli_num_rows($syllabus_query) > 0){
-
-    $row = mysqli_fetch_assoc($syllabus_query);
-    $syllabus_link = "uploads/".$row['material_link'];
-
+if ($syllabus_row && !empty($syllabus_row['material_link'])) {
+    $syllabus_link = "uploads/" . $syllabus_row['material_link'];
+} else {
+    $syllabus_link = "#";
 }
-
-
 $notes_query = mysqli_query($conn, "SELECT material_link FROM study_material WHERE material_type='notes' LIMIT 1");
-
-if($notes_query && mysqli_num_rows($notes_query) > 0){
-
-    $row = mysqli_fetch_assoc($notes_query);
-    $notes_link = "uploads/".$row['material_link'];
-
-}
-
+$notes_row = mysqli_fetch_assoc($notes_query);
+$notes_link = ($notes_row && !empty($notes_row['material_link'])) ? "uploads/" . $notes_row['material_link'] : "#";
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Basic Science - LearnHub</title>
-
+<title>Basic Mathematics - LearnHub</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-
-body{
-
-    min-height:100vh;
-    background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
-    color:white;
-
-}
-
-
-.container{
-
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-    padding:30px 0;
-
-}
-
-
-.topbar{
-
-    display:flex;
-    justify-content:center;
-    margin-bottom:30px;
-
-}
-
-
-.search-box{
-
-    width:350px;
-    padding:14px 20px;
-    border-radius:30px;
-    border:none;
-    outline:none;
-    background:rgba(255,255,255,.08);
-    color:white;
-
-}
-
-
-
-.banner{
-
-    height:250px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#2d4a8a,#5b2c83);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:40px;
-    text-align:center;
-
-}
-
-
-
-.banner h1{
-
-    font-size:55px;
-
-}
-
-
-
-.header{
-
-    text-align:center;
-    margin-bottom:40px;
-
-}
-
-
-
-.header h2{
-
-    font-size:60px;
-    color:#38bdf8;
-    margin-bottom:15px;
-
-}
-
-
-
-.header p{
-
-    font-size:22px;
-    color:#d1d5db;
-
-}
-
-
-
-.card{
-
-    background:rgba(255,255,255,.05);
-    border-radius:25px;
-    padding:30px;
-    backdrop-filter:blur(15px);
-
-}
-
-
-
-.card h3{
-
-    text-align:center;
-    color:#38bdf8;
-    font-size:35px;
-    margin-bottom:25px;
-
-}
-
-
-
-.item-link{
-
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:18px 20px;
-    margin-bottom:15px;
-    text-decoration:none;
-    color:white;
-    background:rgba(255,255,255,.05);
-    border-left:5px solid #38bdf8;
-    border-radius:12px;
-    transition:.3s;
-
-}
-
-
-
-.item-link:hover{
-
-    transform:translateX(8px);
-    background:rgba(56,189,248,.15);
-
-}
-
-
-
-.icon{
-
-    font-size:24px;
-
-}
-
-
-
-@media(max-width:768px){
-
-.banner h1{
-
-    font-size:35px;
-
-}
-
-
-.header h2{
-
-    font-size:40px;
-
-}
-
-
-.search-box{
-
-    width:100%;
-
-}
-
-}
-
-
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  }
+
+  body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 35%, #311042 70%, #0f172a 100%);
+    background-attachment: fixed;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .container {
+    width: min(90%, 800px);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    padding: 40px 30px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #f8fafc;
+    margin-bottom: 30px;
+  }
+
+  .materials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .item-link {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 22px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid #38bdf8;
+    border-radius: 14px;
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  .item-link:hover {
+    background: rgba(56, 189, 248, 0.12);
+    transform: translateX(6px);
+    color: #38bdf8;
+  }
+
+  .item-icon {
+    font-size: 1.25rem;
+  }
 </style>
-
-
 </head>
-
-
 
 <body>
 
-
-<div class="container">
-
-
-
-<div class="topbar">
-
-<input type="text" class="search-box" placeholder="Search Materials...">
-
-</div>
-
-
-
-
-<div class="banner">
-
-<h1>Basic Science</h1>
-
-</div>
-
-
-
-
-<div class="header">
-
-<h2>Basic Science</h2>
-
-<p>
-Access syllabus, notes, video lectures,
-previous question papers, quizzes and certificates.
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h3>Study Materials</h3>
-
-
-
-<a href="<?php echo $syllabus_link; ?>" target="_blank" class="item-link">
-
-<span class="icon">📄</span>
-
-Syllabus
-
-</a>
-
-
-
-
-<a href="<?php echo $notes_link; ?>" target="_blank" class="item-link">
-
-<span class="icon">📝</span>
-
-Notes
-
-</a>
-
-
-
-
-<a href="https://youtube.com/" target="_blank" class="item-link">
-
-<span class="icon">🎥</span>
-
-Video Lectures
-
-</a>
-
-
-
-
-<a href="admin/uploads/science_qp.pdf" target="_blank" class="item-link">
-
-<span class="icon">📚</span>
-
-Previous Question Papers
-
-</a>
-
-
-
-
-<a href="Basic_science_quiz.php" class="item-link">
-
-<span class="icon">✍️</span>
-
-Quiz
-
-</a>
-
-
-
-
-<a href="quiz/science_certificate.php" class="item-link">
-
-<span class="icon">🎓</span>
-
-Certificate
-
-</a>
-
-
-
-</div>
-
-
-</div>
-
+<header class="header">
+  <h1>Basic Mathematics</h1>
+</header>
+
+<main class="container">
+  <div class="card">
+    <h2>Study Materials</h2>
+
+    <div class="materials-grid">
+
+      <!-- Syllabus Link from Database -->
+      <a href="<?php echo $syllabus_link; ?>" target="_blank" class="item-link">
+        <span class="item-icon">&#128203;</span>
+        <span>Syllabus</span>
+      </a>
+
+      <!-- Notes Link from Database -->
+      <a href="<?php echo $notes_link; ?>" target="_blank" class="item-link">
+        <span class="item-icon">&#128221;</span>
+        <span>Notes</span>
+      </a>
+
+      <!-- Video Lectures -->
+      <a href="https://youtube.com/playlist?list=PLT3bOBUU3L9gFLFKKpMZXUSm6wrgLGadN&si=RSgbpclBuaQpw8MJ" target="_blank" class="item-link">
+        <span class="item-icon">&#127916;</span>
+        <span>Video Lectures</span>
+      </a>
+
+      <!-- Previous Question Papers -->
+      <a href="admin/uploads/math_qp.pdf" target="_blank" class="item-link">
+        <span class="item-icon">&#10067;</span>
+        <span>Previous Question Papers</span>
+      </a>
+
+      <!-- Quiz -->
+      <a href="basic_science_quiz.php" class="item-link">
+        <span class="item-icon">&#9997;</span>
+        <span>Quiz</span>
+      </a>
+
+      <!-- Certificate -->
+      <a href="quiz/math_quiz.html" class="item-link">
+        <span class="item-icon">&#127891;</span>
+        <span>Certificate</span>
+      </a>
+
+    </div>
+  </div>
+</main>
 
 </body>
-
 </html>

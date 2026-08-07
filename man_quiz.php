@@ -1,32 +1,31 @@
-
 <?php
 session_start();
 
 $_SESSION['subject'] = "Management";
-$_SESSION['semester'] = "Semester 6";
+$_SESSION['semester'] = "Semester 7";
 
-$_SESSION['answers']=array(
+$_SESSION['answers'] = array(
 
 1=>'A',
 2=>'B',
 3=>'C',
-4=>'D',
-5=>'A',
+4=>'A',
+5=>'D',
 6=>'B',
-7=>'C',
-8=>'D',
-9=>'A',
+7=>'A',
+8=>'C',
+9=>'D',
 10=>'B',
-11=>'C',
-12=>'D',
-13=>'A',
-14=>'B',
-15=>'C',
-16=>'D',
+11=>'A',
+12=>'C',
+13=>'B',
+14=>'A',
+15=>'D',
+16=>'C',
 17=>'A',
 18=>'B',
-19=>'C',
-20=>'D'
+19=>'D',
+20=>'A'
 
 );
 
@@ -52,243 +51,790 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
+
 background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
 color:white;
 min-height:100vh;
 padding:40px 20px;
+display:flex;
+justify-content:center;
+
 }
 
 .container{
-max-width:900px;
-margin:auto;
+
+width:750px;
+max-width:100%;
+
 }
+
 
 .heading{
+
 text-align:center;
-font-size:42px;
+font-size:35px;
+font-weight:800;
 color:#38bdf8;
-margin-bottom:30px;
+margin-bottom:10px;
+
 }
+
+
+.subheading{
+
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
+
+}
+
 
 .card{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
-}
 
-.question{
 background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:25px;
+
+}
+
+
+.question-card{
+
+background:rgba(255,255,255,0.04);
 padding:20px;
-margin-bottom:20px;
 border-radius:15px;
+margin-bottom:25px;
+
 }
 
-.question h3{
+
+.question-title{
+
 color:#38bdf8;
+font-size:18px;
+font-weight:bold;
 margin-bottom:15px;
+
 }
 
-label{
+
+.option-label{
+
 display:block;
-padding:8px;
+background:rgba(255,255,255,0.07);
+padding:12px;
+border-radius:10px;
+margin-bottom:10px;
+cursor:pointer;
+
 }
 
-.submit{
+
+.option-label:hover{
+
+background:rgba(255,255,255,0.15);
+
+}
+
+
+.option-label input{
+
+margin-right:10px;
+
+}
+
+
+.btn-submit{
+
 width:100%;
 padding:15px;
-background:#0d6efd;
-color:white;
 border:none;
 border-radius:30px;
+background:#0284c7;
+color:white;
 font-size:18px;
-cursor:pointer;
+font-weight:bold;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
+
 <h1 class="heading">
-Semester 6 - Management Quiz
+Management Quiz
 </h1>
+
+<p class="subheading">
+Test your knowledge about Management Concepts
+</p>
+
 
 <div class="card">
 
-<form action="quiz1.php" method="post">
 
-<div class="question">
-<h3>1. Management is the process of</h3>
-<label><input type="radio" name="q1" value="A"> Planning, Organizing, Directing and Controlling</label>
-<label><input type="radio" name="q1" value="B"> Sleeping</label>
-<label><input type="radio" name="q1" value="C"> Travelling</label>
-<label><input type="radio" name="q1" value="D"> Entertainment</label>
+<form action="check_quiz.php" method="post">
+
+
+
+<!-- Q1 -->
+
+<div class="question-card">
+
+<div class="question-title">
+1. Management is the process of
 </div>
 
-<div class="question">
-<h3>2. Planning is</h3>
-<label><input type="radio" name="q2" value="A"> Execution</label>
-<label><input type="radio" name="q2" value="B"> Deciding Future Course of Action</label>
-<label><input type="radio" name="q2" value="C"> Controlling</label>
-<label><input type="radio" name="q2" value="D"> Staffing</label>
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Planning, organizing, directing and controlling resources
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+Only planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+Only controlling
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+Only production
+</label>
+
 </div>
 
-<div class="question">
-<h3>3. Organizing means</h3>
-<label><input type="radio" name="q3" value="A"> Selling</label>
-<label><input type="radio" name="q3" value="B"> Purchasing</label>
-<label><input type="radio" name="q3" value="C"> Arranging Resources Efficiently</label>
-<label><input type="radio" name="q3" value="D"> Advertising</label>
+
+
+<!-- Q2 -->
+
+<div class="question-card">
+
+<div class="question-title">
+2. The father of scientific management is
 </div>
 
-<div class="question">
-<h3>4. Controlling ensures</h3>
-<label><input type="radio" name="q4" value="A"> Delay</label>
-<label><input type="radio" name="q4" value="B"> Confusion</label>
-<label><input type="radio" name="q4" value="C"> Wastage</label>
-<label><input type="radio" name="q4" value="D"> Achievement of Goals</label>
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+Henry Fayol
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+F.W. Taylor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Elton Mayo
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+Peter Drucker
+</label>
+
 </div>
 
-<div class="question">
-<h3>5. Leadership is the ability to</h3>
-<label><input type="radio" name="q5" value="A"> Influence People</label>
-<label><input type="radio" name="q5" value="B"> Avoid Work</label>
-<label><input type="radio" name="q5" value="C"> Increase Conflicts</label>
-<label><input type="radio" name="q5" value="D"> Waste Resources</label>
+
+
+<!-- Q3 -->
+
+<div class="question-card">
+
+<div class="question-title">
+3. Planning means
 </div>
 
-<div class="question">
-<h3>6. Staffing refers to</h3>
-<label><input type="radio" name="q6" value="A"> Marketing</label>
-<label><input type="radio" name="q6" value="B"> Recruitment and Selection</label>
-<label><input type="radio" name="q6" value="C"> Sales</label>
-<label><input type="radio" name="q6" value="D"> Production</label>
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+Checking performance only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Controlling employees
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Deciding objectives and actions in advance
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Recruiting employees only
+</label>
+
 </div>
 
-<div class="question">
-<h3>7. Communication is important for</h3>
-<label><input type="radio" name="q7" value="A"> Misunderstanding</label>
-<label><input type="radio" name="q7" value="B"> Conflict Only</label>
-<label><input type="radio" name="q7" value="C"> Effective Coordination</label>
-<label><input type="radio" name="q7" value="D"> Delay</label>
+
+
+<!-- Q4 -->
+
+<div class="question-card">
+
+<div class="question-title">
+4. Organizing involves
 </div>
 
-<div class="question">
-<h3>8. Decision making is</h3>
-<label><input type="radio" name="q8" value="A"> Ignoring Problems</label>
-<label><input type="radio" name="q8" value="B"> Avoiding Work</label>
-<label><input type="radio" name="q8" value="C"> Delaying Actions</label>
-<label><input type="radio" name="q8" value="D"> Choosing the Best Alternative</label>
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Arranging resources and activities
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Ignoring work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Avoiding decisions
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Stopping communication
+</label>
+
 </div>
 
-<div class="question">
-<h3>9. Motivation helps to</h3>
-<label><input type="radio" name="q9" value="A"> Improve Employee Performance</label>
-<label><input type="radio" name="q9" value="B"> Reduce Productivity</label>
-<label><input type="radio" name="q9" value="C"> Increase Absenteeism</label>
-<label><input type="radio" name="q9" value="D"> Create Problems</label>
+
+
+<!-- Q5 -->
+
+<div class="question-card">
+
+<div class="question-title">
+5. Leadership is the ability to
 </div>
 
-<div class="question">
-<h3>10. Coordination means</h3>
-<label><input type="radio" name="q10" value="A"> Conflict</label>
-<label><input type="radio" name="q10" value="B"> Harmonizing Activities</label>
-<label><input type="radio" name="q10" value="C"> Delay</label>
-<label><input type="radio" name="q10" value="D"> Competition</label>
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Avoid people
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Only give orders
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Ignore goals
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Influence and motivate people
+</label>
+
 </div>
 
-<div class="question">
-<h3>11. Management aims at</h3>
-<label><input type="radio" name="q11" value="A"> Losses</label>
-<label><input type="radio" name="q11" value="B"> Confusion</label>
-<label><input type="radio" name="q11" value="C"> Achieving Organizational Objectives</label>
-<label><input type="radio" name="q11" value="D"> Wastage</label>
+<!-- Q6 -->
+
+<div class="question-card">
+
+<div class="question-title">
+6. Controlling function of management involves
 </div>
 
-<div class="question">
-<h3>12. Budget is a</h3>
-<label><input type="radio" name="q12" value="A"> Sales Tool</label>
-<label><input type="radio" name="q12" value="B"> Communication Tool</label>
-<label><input type="radio" name="q12" value="C"> Marketing Tool</label>
-<label><input type="radio" name="q12" value="D"> Financial Plan</label>
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Hiring employees
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Monitoring and correcting performance
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Preparing advertisements
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Buying materials
+</label>
+
 </div>
 
-<div class="question">
-<h3>13. Time management helps in</h3>
-<label><input type="radio" name="q13" value="A"> Completing Work Efficiently</label>
-<label><input type="radio" name="q13" value="B"> Wasting Time</label>
-<label><input type="radio" name="q13" value="C"> Delaying Work</label>
-<label><input type="radio" name="q13" value="D"> Increasing Cost</label>
+
+
+<!-- Q7 -->
+
+<div class="question-card">
+
+<div class="question-title">
+7. Motivation helps employees to
 </div>
 
-<div class="question">
-<h3>14. Teamwork improves</h3>
-<label><input type="radio" name="q14" value="A"> Conflict</label>
-<label><input type="radio" name="q14" value="B"> Productivity</label>
-<label><input type="radio" name="q14" value="C"> Absenteeism</label>
-<label><input type="radio" name="q14" value="D"> Delay</label>
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Improve performance
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+Stop working
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Avoid responsibility
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Reduce productivity
+</label>
+
 </div>
 
-<div class="question">
-<h3>15. Quality management focuses on</h3>
-<label><input type="radio" name="q15" value="A"> Defects</label>
-<label><input type="radio" name="q15" value="B"> Complaints</label>
-<label><input type="radio" name="q15" value="C"> Customer Satisfaction</label>
-<label><input type="radio" name="q15" value="D"> Waste</label>
+
+
+<!-- Q8 -->
+
+<div class="question-card">
+
+<div class="question-title">
+8. Human Resource Management deals with
 </div>
 
-<div class="question">
-<h3>16. Performance appraisal is used for</h3>
-<label><input type="radio" name="q16" value="A"> Punishment Only</label>
-<label><input type="radio" name="q16" value="B"> Entertainment</label>
-<label><input type="radio" name="q16" value="C"> Holidays</label>
-<label><input type="radio" name="q16" value="D"> Evaluating Employee Performance</label>
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+Machines only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+Finance only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+Managing people in an organization
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+Production only
+</label>
+
 </div>
 
-<div class="question">
-<h3>17. A good manager should have</h3>
-<label><input type="radio" name="q17" value="A"> Leadership Skills</label>
-<label><input type="radio" name="q17" value="B"> Laziness</label>
-<label><input type="radio" name="q17" value="C"> Negligence</label>
-<label><input type="radio" name="q17" value="D"> Poor Communication</label>
+
+
+<!-- Q9 -->
+
+<div class="question-card">
+
+<div class="question-title">
+9. Decision making means
 </div>
 
-<div class="question">
-<h3>18. Conflict management helps in</h3>
-<label><input type="radio" name="q18" value="A"> Increasing Disputes</label>
-<label><input type="radio" name="q18" value="B"> Resolving Workplace Issues</label>
-<label><input type="radio" name="q18" value="C"> Delaying Work</label>
-<label><input type="radio" name="q18" value="D"> Reducing Productivity</label>
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+Avoiding problems
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+Ignoring information
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+Delaying work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+Selecting the best alternative
+</label>
+
 </div>
 
-<div class="question">
-<h3>19. Organizational structure defines</h3>
-<label><input type="radio" name="q19" value="A"> Marketing Plan</label>
-<label><input type="radio" name="q19" value="B"> Sales Target</label>
-<label><input type="radio" name="q19" value="C"> Roles and Responsibilities</label>
-<label><input type="radio" name="q19" value="D"> Budget Only</label>
+
+
+<!-- Q10 -->
+
+<div class="question-card">
+
+<div class="question-title">
+10. Communication is important for
 </div>
 
-<div class="question">
-<h3>20. Effective management leads to</h3>
-<label><input type="radio" name="q20" value="A"> Failure</label>
-<label><input type="radio" name="q20" value="B"> Confusion</label>
-<label><input type="radio" name="q20" value="C"> Losses</label>
-<label><input type="radio" name="q20" value="D"> Organizational Success</label>
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Creating confusion
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+Effective exchange of information
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Stopping teamwork
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+Avoiding coordination
+</label>
+
 </div>
 
-<input type="submit" class="submit" value="Submit Quiz">
+
+
+<!-- Q11 -->
+
+<div class="question-card">
+
+<div class="question-title">
+11. Organization structure defines
+</div>
+
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+Authority and responsibility relationships
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+Only salary
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+Only products
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+Only customers
+</label>
+
+</div>
+
+
+
+<!-- Q12 -->
+
+<div class="question-card">
+
+<div class="question-title">
+12. Teamwork helps in
+</div>
+
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+Reducing cooperation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+Increasing conflicts
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Achieving common goals
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+Avoiding communication
+</label>
+
+</div>
+
+
+
+<!-- Q13 -->
+
+<div class="question-card">
+
+<div class="question-title">
+13. Manager is responsible for
+</div>
+
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Ignoring employees
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+Achieving organizational objectives
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Stopping work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Avoiding planning
+</label>
+
+</div>
+
+
+
+<!-- Q14 -->
+
+<div class="question-card">
+
+<div class="question-title">
+14. Coordination means
+</div>
+
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+Integrating activities of different departments
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Stopping teamwork
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+Creating conflicts
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Ignoring objectives
+</label>
+
+</div>
+
+<!-- Q15 -->
+
+<div class="question-card">
+
+<div class="question-title">
+15. Management principles were given by
+</div>
+
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+F.W. Taylor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+Elton Mayo
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+Abraham Maslow
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+Henri Fayol
+</label>
+
+</div>
+
+
+
+<!-- Q16 -->
+
+<div class="question-card">
+
+<div class="question-title">
+16. Staffing involves
+</div>
+
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Controlling machines
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Managing money
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Recruiting and selecting employees
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Marketing products
+</label>
+
+</div>
+
+
+
+<!-- Q17 -->
+
+<div class="question-card">
+
+<div class="question-title">
+17. A good manager should have
+</div>
+
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Leadership and communication skills
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+No decision ability
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+Poor planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Lack of responsibility
+</label>
+
+</div>
+
+
+
+<!-- Q18 -->
+
+<div class="question-card">
+
+<div class="question-title">
+18. Organizational goals are achieved through
+</div>
+
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Conflicts
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Effective management
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+Poor planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Ignoring employees
+</label>
+
+</div>
+
+
+
+<!-- Q19 -->
+
+<div class="question-card">
+
+<div class="question-title">
+19. Maslow's theory is related to
+</div>
+
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Production
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Finance
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Marketing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+Human needs and motivation
+</label>
+
+</div>
+
+
+
+<!-- Q20 -->
+
+<div class="question-card">
+
+<div class="question-title">
+20. Effective management leads to
+</div>
+
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Higher productivity and success
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+Business failure
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+No growth
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+Poor performance
+</label>
+
+</div>
+
+
+
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
+
+
 
 </form>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </body>
-</html>
 
+</html>

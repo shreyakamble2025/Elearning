@@ -1,32 +1,31 @@
-
 <?php
 session_start();
 
 $_SESSION['subject'] = "Seminar And Project Initiation Course";
-$_SESSION['semester'] = "Semester 5";
+$_SESSION['semester'] = "Semester 7";
 
-$_SESSION['answers']=array(
+$_SESSION['answers'] = array(
 
 1=>'A',
 2=>'B',
 3=>'C',
-4=>'D',
-5=>'A',
+4=>'A',
+5=>'D',
 6=>'B',
-7=>'C',
-8=>'D',
-9=>'A',
+7=>'A',
+8=>'C',
+9=>'D',
 10=>'B',
-11=>'C',
-12=>'D',
-13=>'A',
-14=>'B',
-15=>'C',
-16=>'D',
+11=>'A',
+12=>'C',
+13=>'B',
+14=>'A',
+15=>'D',
+16=>'C',
 17=>'A',
 18=>'B',
-19=>'C',
-20=>'D'
+19=>'D',
+20=>'A'
 
 );
 
@@ -52,243 +51,790 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
+
 background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
 color:white;
 min-height:100vh;
 padding:40px 20px;
+display:flex;
+justify-content:center;
+
 }
 
 .container{
-max-width:900px;
-margin:auto;
+
+width:750px;
+max-width:100%;
+
 }
+
 
 .heading{
+
 text-align:center;
-font-size:42px;
+font-size:35px;
+font-weight:800;
 color:#38bdf8;
-margin-bottom:30px;
+margin-bottom:10px;
+
 }
+
+
+.subheading{
+
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
+
+}
+
 
 .card{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
-}
 
-.question{
 background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:25px;
+
+}
+
+
+
+.question-card{
+
+background:rgba(255,255,255,0.04);
 padding:20px;
-margin-bottom:20px;
 border-radius:15px;
+margin-bottom:25px;
+
 }
 
-.question h3{
+
+.question-title{
+
 color:#38bdf8;
+font-size:18px;
+font-weight:bold;
 margin-bottom:15px;
+
 }
 
-label{
+
+.option-label{
+
 display:block;
-padding:8px;
+background:rgba(255,255,255,0.07);
+padding:12px;
+border-radius:10px;
+margin-bottom:10px;
+cursor:pointer;
+
 }
 
-.submit{
+
+.option-label:hover{
+
+background:rgba(255,255,255,0.15);
+
+}
+
+
+.option-label input{
+
+margin-right:10px;
+
+}
+
+
+.btn-submit{
+
 width:100%;
 padding:15px;
-background:#0d6efd;
-color:white;
 border:none;
 border-radius:30px;
+background:#0284c7;
+color:white;
 font-size:18px;
-cursor:pointer;
+font-weight:bold;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
+
 <h1 class="heading">
-Semester 5 - Seminar And Project Initiation Course Quiz
+Seminar And Project Initiation Course Quiz
 </h1>
+
+<p class="subheading">
+Test your knowledge about Seminar and Project Development
+</p>
+
 
 <div class="card">
 
-<form action="quiz1.php" method="post">
 
-<div class="question">
-<h3>1. A seminar is conducted to</h3>
-<label><input type="radio" name="q1" value="A"> Present and Share Knowledge</label>
-<label><input type="radio" name="q1" value="B"> Play Games</label>
-<label><input type="radio" name="q1" value="C"> Travel</label>
-<label><input type="radio" name="q1" value="D"> Shopping</label>
+<form action="check_quiz.php" method="post">
+
+
+<!-- Q1 -->
+
+<div class="question-card">
+
+<div class="question-title">
+1. A project is defined as
 </div>
 
-<div class="question">
-<h3>2. The first step in a project is</h3>
-<label><input type="radio" name="q2" value="A"> Testing</label>
-<label><input type="radio" name="q2" value="B"> Problem Identification</label>
-<label><input type="radio" name="q2" value="C"> Marketing</label>
-<label><input type="radio" name="q2" value="D"> Maintenance</label>
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+A temporary effort to create a unique product or service
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+A daily routine activity
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+A permanent operation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+A financial transaction
+</label>
+
 </div>
 
-<div class="question">
-<h3>3. Project objectives should be</h3>
-<label><input type="radio" name="q3" value="A"> Unclear</label>
-<label><input type="radio" name="q3" value="B"> Complex</label>
-<label><input type="radio" name="q3" value="C"> Specific and Clear</label>
-<label><input type="radio" name="q3" value="D"> Random</label>
+
+
+<!-- Q2 -->
+
+<div class="question-card">
+
+<div class="question-title">
+2. The first step in project planning is
 </div>
 
-<div class="question">
-<h3>4. A project report should contain</h3>
-<label><input type="radio" name="q4" value="A"> Only Pictures</label>
-<label><input type="radio" name="q4" value="B"> Only Tables</label>
-<label><input type="radio" name="q4" value="C"> Only References</label>
-<label><input type="radio" name="q4" value="D"> Complete Project Details</label>
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+Coding
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+Project identification
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Testing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+Deployment
+</label>
+
 </div>
 
-<div class="question">
-<h3>5. Literature survey helps in</h3>
-<label><input type="radio" name="q5" value="A"> Understanding Existing Work</label>
-<label><input type="radio" name="q5" value="B"> Decoration</label>
-<label><input type="radio" name="q5" value="C"> Entertainment</label>
-<label><input type="radio" name="q5" value="D"> Advertising</label>
+
+
+<!-- Q3 -->
+
+<div class="question-card">
+
+<div class="question-title">
+3. A seminar is mainly conducted to
 </div>
 
-<div class="question">
-<h3>6. Project planning includes</h3>
-<label><input type="radio" name="q6" value="A"> Cooking</label>
-<label><input type="radio" name="q6" value="B"> Scheduling Activities</label>
-<label><input type="radio" name="q6" value="C"> Painting</label>
-<label><input type="radio" name="q6" value="D"> Travelling</label>
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+Sell products
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Entertain people
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Present knowledge and research
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Avoid communication
+</label>
+
 </div>
 
-<div class="question">
-<h3>7. Presentation skills are important for</h3>
-<label><input type="radio" name="q7" value="A"> Sleeping</label>
-<label><input type="radio" name="q7" value="B"> Sports</label>
-<label><input type="radio" name="q7" value="C"> Effective Communication</label>
-<label><input type="radio" name="q7" value="D"> Driving</label>
+
+
+<!-- Q4 -->
+
+<div class="question-card">
+
+<div class="question-title">
+4. Project documentation includes
 </div>
 
-<div class="question">
-<h3>8. Project guide provides</h3>
-<label><input type="radio" name="q8" value="A"> Money</label>
-<label><input type="radio" name="q8" value="B"> Equipment Only</label>
-<label><input type="radio" name="q8" value="C"> Attendance</label>
-<label><input type="radio" name="q8" value="D"> Guidance and Support</label>
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Project report
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Only source code
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Only images
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Only presentation
+</label>
+
 </div>
 
-<div class="question">
-<h3>9. Teamwork is important because</h3>
-<label><input type="radio" name="q9" value="A"> It Improves Project Success</label>
-<label><input type="radio" name="q9" value="B"> It Delays Work</label>
-<label><input type="radio" name="q9" value="C"> It Increases Cost</label>
-<label><input type="radio" name="q9" value="D"> It Stops Communication</label>
+
+
+<!-- Q5 -->
+
+<div class="question-card">
+
+<div class="question-title">
+5. The main objective of project initiation is
 </div>
 
-<div class="question">
-<h3>10. Project scope defines</h3>
-<label><input type="radio" name="q10" value="A"> Budget Only</label>
-<label><input type="radio" name="q10" value="B"> Boundaries and Deliverables</label>
-<label><input type="radio" name="q10" value="C"> Attendance</label>
-<label><input type="radio" name="q10" value="D"> Holidays</label>
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Delete project
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Stop planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Avoid research
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Define project goals and scope
+</label>
+
 </div>
 
-<div class="question">
-<h3>11. References in a report are used for</h3>
-<label><input type="radio" name="q11" value="A"> Decoration</label>
-<label><input type="radio" name="q11" value="B"> Entertainment</label>
-<label><input type="radio" name="q11" value="C"> Citing Information Sources</label>
-<label><input type="radio" name="q11" value="D"> Advertisement</label>
+<!-- Q6 -->
+
+<div class="question-card">
+
+<div class="question-title">
+6. A project proposal contains
 </div>
 
-<div class="question">
-<h3>12. A good presentation should be</h3>
-<label><input type="radio" name="q12" value="A"> Confusing</label>
-<label><input type="radio" name="q12" value="B"> Long and Unclear</label>
-<label><input type="radio" name="q12" value="C"> Colourful Only</label>
-<label><input type="radio" name="q12" value="D"> Clear and Well Organized</label>
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Only project title
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Objectives, scope and methodology
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Only budget details
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Only diagrams
+</label>
+
 </div>
 
-<div class="question">
-<h3>13. Project execution means</h3>
-<label><input type="radio" name="q13" value="A"> Implementing the Plan</label>
-<label><input type="radio" name="q13" value="B"> Ignoring the Plan</label>
-<label><input type="radio" name="q13" value="C"> Deleting the Project</label>
-<label><input type="radio" name="q13" value="D"> Closing the Project</label>
+
+
+<!-- Q7 -->
+
+<div class="question-card">
+
+<div class="question-title">
+7. Literature survey is used to
 </div>
 
-<div class="question">
-<h3>14. Time management helps to</h3>
-<label><input type="radio" name="q14" value="A"> Waste Time</label>
-<label><input type="radio" name="q14" value="B"> Complete Work Efficiently</label>
-<label><input type="radio" name="q14" value="C"> Delay Projects</label>
-<label><input type="radio" name="q14" value="D"> Increase Errors</label>
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Study existing research work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+Write program directly
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Purchase hardware
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Prepare only presentation
+</label>
+
 </div>
 
-<div class="question">
-<h3>15. Innovation in a project means</h3>
-<label><input type="radio" name="q15" value="A"> Copying Existing Work</label>
-<label><input type="radio" name="q15" value="B"> Repeating Old Ideas</label>
-<label><input type="radio" name="q15" value="C"> New and Creative Ideas</label>
-<label><input type="radio" name="q15" value="D"> Avoiding Research</label>
+
+
+<!-- Q8 -->
+
+<div class="question-card">
+
+<div class="question-title">
+8. Project feasibility study determines
 </div>
 
-<div class="question">
-<h3>16. Project documentation is important for</h3>
-<label><input type="radio" name="q16" value="A"> Decoration</label>
-<label><input type="radio" name="q16" value="B"> Entertainment</label>
-<label><input type="radio" name="q16" value="C"> Attendance</label>
-<label><input type="radio" name="q16" value="D"> Future Reference and Evaluation</label>
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+Colour of project
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+Team members only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+Project possibility and viability
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+Project advertisement
+</label>
+
 </div>
 
-<div class="question">
-<h3>17. Seminar presentation improves</h3>
-<label><input type="radio" name="q17" value="A"> Confidence and Communication Skills</label>
-<label><input type="radio" name="q17" value="B"> Sleep</label>
-<label><input type="radio" name="q17" value="C"> Laziness</label>
-<label><input type="radio" name="q17" value="D"> Absenteeism</label>
+
+
+<!-- Q9 -->
+
+<div class="question-card">
+
+<div class="question-title">
+9. Gantt chart is used for
 </div>
 
-<div class="question">
-<h3>18. Project cost estimation is done to</h3>
-<label><input type="radio" name="q18" value="A"> Increase Cost</label>
-<label><input type="radio" name="q18" value="B"> Plan Resources and Budget</label>
-<label><input type="radio" name="q18" value="C"> Delay Work</label>
-<label><input type="radio" name="q18" value="D"> Avoid Planning</label>
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+Database design
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+Programming
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+Testing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+Project scheduling
+</label>
+
 </div>
 
-<div class="question">
-<h3>19. Risk analysis helps to</h3>
-<label><input type="radio" name="q19" value="A"> Create Problems</label>
-<label><input type="radio" name="q19" value="B"> Ignore Issues</label>
-<label><input type="radio" name="q19" value="C"> Identify Potential Problems</label>
-<label><input type="radio" name="q19" value="D"> Increase Cost</label>
+
+
+<!-- Q10 -->
+
+<div class="question-card">
+
+<div class="question-title">
+10. A project team consists of
 </div>
 
-<div class="question">
-<h3>20. Successful project completion requires</h3>
-<label><input type="radio" name="q20" value="A"> No Planning</label>
-<label><input type="radio" name="q20" value="B"> No Teamwork</label>
-<label><input type="radio" name="q20" value="C"> No Documentation</label>
-<label><input type="radio" name="q20" value="D"> Planning, Teamwork and Execution</label>
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Only manager
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+People working together to achieve goals
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Only customers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+Only investors
+</label>
+
 </div>
 
-<input type="submit" class="submit" value="Submit Quiz">
+
+
+<!-- Q11 -->
+
+<div class="question-card">
+
+<div class="question-title">
+11. Research methodology defines
+</div>
+
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+Methods used for research
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+Project cost only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+Project colour
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+Hardware price
+</label>
+
+</div>
+
+
+
+<!-- Q12 -->
+
+<div class="question-card">
+
+<div class="question-title">
+12. Presentation skills help in
+</div>
+
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+Ignoring audience
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+Reducing knowledge
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Effective communication
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+Stopping discussion
+</label>
+
+</div>
+
+
+
+<!-- Q13 -->
+
+<div class="question-card">
+
+<div class="question-title">
+13. The final stage of project is
+</div>
+
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+Project completion and presentation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Requirement analysis
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Problem selection
+</label>
+
+</div>
+
+
+
+<!-- Q14 -->
+
+<div class="question-card">
+
+<div class="question-title">
+14. Project report should contain
+</div>
+
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+Introduction, methodology and results
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Only title page
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+Only diagrams
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Only references
+</label>
+
+</div>
+
+<!-- Q15 -->
+
+<div class="question-card">
+
+<div class="question-title">
+15. Abstract of project gives
+</div>
+
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+Complete source code
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+Only images
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+Only budget
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+Brief summary of project
+</label>
+
+</div>
+
+
+
+<!-- Q16 -->
+
+<div class="question-card">
+
+<div class="question-title">
+16. Innovation in project means
+</div>
+
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Copying old work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Avoiding research
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Introducing new ideas or solutions
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Removing objectives
+</label>
+
+</div>
+
+
+
+<!-- Q17 -->
+
+<div class="question-card">
+
+<div class="question-title">
+17. Project objectives should be
+</div>
+
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Clear and achievable
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+Unclear
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+Impossible
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Unrelated
+</label>
+
+</div>
+
+
+
+<!-- Q18 -->
+
+<div class="question-card">
+
+<div class="question-title">
+18. References are included in report to
+</div>
+
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Increase report size
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Give source information
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+Remove content
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Avoid research
+</label>
+
+</div>
+
+
+
+<!-- Q19 -->
+
+<div class="question-card">
+
+<div class="question-title">
+19. Risk analysis helps to
+</div>
+
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Increase problems
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Stop project
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Ignore difficulties
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+Identify and manage risks
+</label>
+
+</div>
+
+
+
+<!-- Q20 -->
+
+<div class="question-card">
+
+<div class="question-title">
+20. Successful project requires
+</div>
+
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Proper planning and execution
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+No planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+Only money
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+Only presentation
+</label>
+
+</div>
+
+
+
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
+
+
 
 </form>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </body>
-</html>
 
+</html>

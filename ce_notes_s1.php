@@ -163,9 +163,9 @@ $result = mysqli_query($conn, $sql);
 
 <header class="header">
 	  <div class="back-container">
-    <a href="notes.php" class="back-btn">&#8592; Back</a>
+    <a href="ce_notes.php" class="back-btn">&#8592; Back</a>
 </div>
-  
+  <h1>Semester 1 Notes List</h1>
 </header>
 
 <main class="container">
@@ -200,7 +200,7 @@ $result = mysqli_query($conn, $sql);
 				} 
 				else 
 				{
-						$notes_link = "cenotes.php";
+						$notes_link = "#";
 				}
 				
 
@@ -210,9 +210,9 @@ $result = mysqli_query($conn, $sql);
                     <td><?php echo htmlspecialchars($subject_name); ?></td>
                     <td><?php echo htmlspecialchars($semester); ?></td>
                     <td>
-                      <a href="uploads/communication_notes.pdf" target="_blank">
-View Notes
-</a>
+                      <a href="<?php echo $notes_link; ?>" target="_blank" class="btn-view">
+                        &#128203; View PDF
+                      </a>
                     </td>
                   </tr>
                   <?php
@@ -220,7 +220,7 @@ View Notes
           } else {
               ?>
               <tr>
-                <td colspan="4" class="no-data">No syllabus PDFs found for Semester 2 in database.</td>
+                <td colspan="4" class="no-data">No syllabus PDFs found for Semester 1 in database.</td>
               </tr>
               <?php
           }

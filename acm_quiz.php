@@ -1,32 +1,31 @@
-
 <?php
 session_start();
 
 $_SESSION['subject'] = "A.C. Machines";
-$_SESSION['semester'] = "Semester 5";
+$_SESSION['semester'] = "Semester 1";
 
-$_SESSION['answers']=array(
+$_SESSION['answers'] = array(
 
 1=>'A',
-2=>'B',
+2=>'A',
 3=>'C',
-4=>'D',
+4=>'A',
 5=>'A',
 6=>'B',
 7=>'C',
-8=>'D',
-9=>'A',
+8=>'A',
+9=>'D',
 10=>'B',
-11=>'C',
-12=>'D',
-13=>'A',
-14=>'B',
-15=>'C',
-16=>'D',
+11=>'A',
+12=>'C',
+13=>'B',
+14=>'A',
+15=>'D',
+16=>'C',
 17=>'A',
 18=>'B',
-19=>'C',
-20=>'D'
+19=>'D',
+20=>'A'
 
 );
 
@@ -48,61 +47,102 @@ $_SESSION['answers']=array(
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
-color:white;
+background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 35%,#311042 70%,#0f172a 100%);
+background-attachment:fixed;
+color:#f8fafc;
 min-height:100vh;
 padding:40px 20px;
+display:flex;
+justify-content:center;
 }
 
 .container{
-max-width:900px;
-margin:auto;
+width:min(100%,750px);
+}
+
+.header-group{
+text-align:center;
+margin-bottom:35px;
 }
 
 .heading{
-text-align:center;
-font-size:42px;
-color:#38bdf8;
-margin-bottom:30px;
+font-size:2.2rem;
+font-weight:800;
+background:linear-gradient(135deg,#38bdf8,#818cf8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:8px;
+}
+
+.subheading{
+color:#94a3b8;
+font-size:0.95rem;
 }
 
 .card{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
+background:rgba(255,255,255,0.03);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:24px;
+padding:36px 30px;
+box-shadow:0 12px 40px rgba(0,0,0,0.45);
 }
 
-.question{
-background:rgba(255,255,255,0.05);
-padding:20px;
-margin-bottom:20px;
-border-radius:15px;
+.question-card{
+background:rgba(255,255,255,0.02);
+border:1px solid rgba(255,255,255,0.07);
+border-radius:16px;
+padding:22px 20px;
+margin-bottom:24px;
 }
 
-.question h3{
+.question-title{
+font-size:1.05rem;
+font-weight:600;
 color:#38bdf8;
-margin-bottom:15px;
+margin-bottom:16px;
 }
 
-label{
-display:block;
-padding:8px;
+.options-grid{
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
-.submit{
+.option-label{
+display:flex;
+align-items:center;
+padding:12px 16px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.option-label:hover{
+background:rgba(255,255,255,0.08);
+}
+
+.option-label input{
+margin-right:12px;
+}
+
+.btn-submit{
 width:100%;
-padding:15px;
-background:#0d6efd;
-color:white;
+padding:16px;
 border:none;
 border-radius:30px;
-font-size:18px;
+background:linear-gradient(135deg,#0d6efd,#0284c7);
+color:white;
+font-size:1.05rem;
+font-weight:700;
 cursor:pointer;
+margin-top:10px;
 }
 
 </style>
@@ -113,175 +153,583 @@ cursor:pointer;
 
 <div class="container">
 
-<h1 class="heading">
-Semester 5 - A.C. Machines Quiz
-</h1>
+<div class="header-group">
+<h1 class="heading">A.C. Machines Quiz</h1>
+<p class="subheading">
+Test your knowledge across A.C. Machines concepts.
+</p>
+</div>
 
 <div class="card">
 
-<form action="quiz1.php" method="post">
+<form action="check_quiz.php" method="post">
 
-<div class="question">
-<h3>1. AC machines operate on</h3>
-<label><input type="radio" name="q1" value="A"> Alternating Current</label>
-<label><input type="radio" name="q1" value="B"> Direct Current</label>
-<label><input type="radio" name="q1" value="C"> Battery Only</label>
-<label><input type="radio" name="q1" value="D"> Solar Energy</label>
+<div class="question-card">
+<div class="question-title">
+1. An AC machine operates on
 </div>
 
-<div class="question">
-<h3>2. The unit of frequency is</h3>
-<label><input type="radio" name="q2" value="A"> Volt</label>
-<label><input type="radio" name="q2" value="B"> Hertz</label>
-<label><input type="radio" name="q2" value="C"> Watt</label>
-<label><input type="radio" name="q2" value="D"> Ohm</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Alternating Current
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+Direct Current
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+Battery Current
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+Static Current
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>3. Synchronous motor runs at</h3>
-<label><input type="radio" name="q3" value="A"> Variable Speed</label>
-<label><input type="radio" name="q3" value="B"> Half Speed</label>
-<label><input type="radio" name="q3" value="C"> Synchronous Speed</label>
-<label><input type="radio" name="q3" value="D"> Zero Speed</label>
+<div class="question-card">
+<div class="question-title">
+2. The most commonly used AC motor is
 </div>
 
-<div class="question">
-<h3>4. Induction motor works on</h3>
-<label><input type="radio" name="q4" value="A"> Electrolysis</label>
-<label><input type="radio" name="q4" value="B"> Heating Effect</label>
-<label><input type="radio" name="q4" value="C"> Chemical Effect</label>
-<label><input type="radio" name="q4" value="D"> Electromagnetic Induction</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+Induction Motor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+DC Motor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Stepper Motor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+Servo Motor
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>5. Rotor is the</h3>
-<label><input type="radio" name="q5" value="A"> Rotating Part</label>
-<label><input type="radio" name="q5" value="B"> Stationary Part</label>
-<label><input type="radio" name="q5" value="C"> Frame</label>
-<label><input type="radio" name="q5" value="D"> Bearing</label>
+<div class="question-card">
+<div class="question-title">
+3. The synchronous speed depends on
 </div>
 
-<div class="question">
-<h3>6. Stator is the</h3>
-<label><input type="radio" name="q6" value="A"> Rotating Part</label>
-<label><input type="radio" name="q6" value="B"> Stationary Part</label>
-<label><input type="radio" name="q6" value="C"> Shaft</label>
-<label><input type="radio" name="q6" value="D"> Coupling</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+Voltage
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Current
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Frequency and Number of Poles
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Resistance
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>7. Slip in induction motor is measured in</h3>
-<label><input type="radio" name="q7" value="A"> Volt</label>
-<label><input type="radio" name="q7" value="B"> Ampere</label>
-<label><input type="radio" name="q7" value="C"> Percentage</label>
-<label><input type="radio" name="q7" value="D"> Watt</label>
+<div class="question-card">
+<div class="question-title">
+4. Rotor of a squirrel cage induction motor is made of
 </div>
 
-<div class="question">
-<h3>8. A synchronous motor runs with</h3>
-<label><input type="radio" name="q8" value="A"> High Slip</label>
-<label><input type="radio" name="q8" value="B"> Negative Slip</label>
-<label><input type="radio" name="q8" value="C"> 50% Slip</label>
-<label><input type="radio" name="q8" value="D"> Zero Slip</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Copper or Aluminium Bars
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Plastic
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Wood
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Rubber
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>9. Alternator converts</h3>
-<label><input type="radio" name="q9" value="A"> Mechanical Energy into Electrical Energy</label>
-<label><input type="radio" name="q9" value="B"> Electrical into Mechanical</label>
-<label><input type="radio" name="q9" value="C"> AC into DC</label>
-<label><input type="radio" name="q9" value="D"> DC into AC</label>
+<div class="question-card">
+<div class="question-title">
+5. The stationary part of an AC machine is called
 </div>
 
-<div class="question">
-<h3>10. Frequency of generated voltage depends on</h3>
-<label><input type="radio" name="q10" value="A"> Current</label>
-<label><input type="radio" name="q10" value="B"> Speed and Number of Poles</label>
-<label><input type="radio" name="q10" value="C"> Resistance</label>
-<label><input type="radio" name="q10" value="D"> Temperature</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Stator
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Rotor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Armature
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Commutator
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>11. Induction motor is widely used because it is</h3>
-<label><input type="radio" name="q11" value="A"> Costly</label>
-<label><input type="radio" name="q11" value="B"> Complex</label>
-<label><input type="radio" name="q11" value="C"> Simple and Rugged</label>
-<label><input type="radio" name="q11" value="D"> Heavy</label>
+<div class="question-card">
+<div class="question-title">
+6. The rotor of a synchronous motor rotates at
 </div>
 
-<div class="question">
-<h3>12. Synchronous speed depends on</h3>
-<label><input type="radio" name="q12" value="A"> Voltage</label>
-<label><input type="radio" name="q12" value="B"> Current</label>
-<label><input type="radio" name="q12" value="C"> Power</label>
-<label><input type="radio" name="q12" value="D"> Frequency and Poles</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Zero Speed
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Synchronous Speed
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Half Speed
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Variable Speed
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>13. The rotor of squirrel cage motor consists of</h3>
-<label><input type="radio" name="q13" value="A"> Conducting Bars</label>
-<label><input type="radio" name="q13" value="B"> Brushes</label>
-<label><input type="radio" name="q13" value="C"> Commutator</label>
-<label><input type="radio" name="q13" value="D"> Slip Rings Only</label>
+<div class="question-card">
+<div class="question-title">
+7. Slip in a synchronous motor is
 </div>
 
-<div class="question">
-<h3>14. Slip ring induction motor uses</h3>
-<label><input type="radio" name="q14" value="A"> Commutator</label>
-<label><input type="radio" name="q14" value="B"> Slip Rings</label>
-<label><input type="radio" name="q14" value="C"> Brushes Only</label>
-<label><input type="radio" name="q14" value="D"> Rectifier</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+100%
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+50%
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+0%
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+25%
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>15. AC generator is also called</h3>
-<label><input type="radio" name="q15" value="A"> Motor</label>
-<label><input type="radio" name="q15" value="B"> Transformer</label>
-<label><input type="radio" name="q15" value="C"> Alternator</label>
-<label><input type="radio" name="q15" value="D"> Converter</label>
+<div class="question-card">
+<div class="question-title">
+8. The principle of operation of induction motor is
 </div>
 
-<div class="question">
-<h3>16. Power factor of synchronous motor can be</h3>
-<label><input type="radio" name="q16" value="A"> Only Lagging</label>
-<label><input type="radio" name="q16" value="B"> Only Unity</label>
-<label><input type="radio" name="q16" value="C"> Only Leading</label>
-<label><input type="radio" name="q16" value="D"> Leading, Lagging or Unity</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+Electromagnetic Induction
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+Electrolysis
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+Heating Effect
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+Chemical Reaction
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>17. Rotor speed of induction motor is</h3>
-<label><input type="radio" name="q17" value="A"> Less than Synchronous Speed</label>
-<label><input type="radio" name="q17" value="B"> Greater than Synchronous Speed</label>
-<label><input type="radio" name="q17" value="C"> Equal to Double Speed</label>
-<label><input type="radio" name="q17" value="D"> Zero</label>
+<div class="question-card">
+<div class="question-title">
+9. Slip of an induction motor is always
 </div>
 
-<div class="question">
-<h3>18. AC machines are commonly used in</h3>
-<label><input type="radio" name="q18" value="A"> Toys Only</label>
-<label><input type="radio" name="q18" value="B"> Industries and Power Systems</label>
-<label><input type="radio" name="q18" value="C"> Mobile Phones Only</label>
-<label><input type="radio" name="q18" value="D"> Watches Only</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+Zero
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+Negative
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+More than 100%
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+Less than 100%
+</label>
+</div>
 </div>
 
-<div class="question">
-<h3>19. Efficiency of AC machines is generally</h3>
-<label><input type="radio" name="q19" value="A"> Very Low</label>
-<label><input type="radio" name="q19" value="B"> 20%</label>
-<label><input type="radio" name="q19" value="C"> High</label>
-<label><input type="radio" name="q19" value="D"> Zero</label>
+<div class="question-card">
+<div class="question-title">
+10. The speed of an induction motor is measured in
 </div>
 
-<div class="question">
-<h3>20. AC machines are essential for</h3>
-<label><input type="radio" name="q20" value="A"> Power Generation and Utilization</label>
-<label><input type="radio" name="q20" value="B"> Decoration</label>
-<label><input type="radio" name="q20" value="C"> Painting</label>
-<label><input type="radio" name="q20" value="D"> Plumbing</label>
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Volt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+RPM
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Ampere
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+Ohm
+</label>
+</div>
 </div>
 
-<input type="submit" class="submit" value="Submit Quiz">
+<div class="question-card">
+<div class="question-title">
+11. The rotor of a slip ring induction motor contains
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+Slip Rings
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+Commutator
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+Brushless Rotor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+Permanent Magnet
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+12. The stator winding of an AC machine is generally made of
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+Aluminium Sheet
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+Steel Rod
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Copper Conductor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+Plastic Wire
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+13. A synchronous motor runs at
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Below Synchronous Speed
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+Synchronous Speed
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Half Synchronous Speed
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Variable Speed
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+14. The frequency of generated EMF depends on
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+Speed and Poles
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Voltage Only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+Current Only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Resistance Only
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+15. AC generators are also called
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+DC Machines
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+Rectifiers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+Transformers
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+Alternators
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+16. The unit of frequency is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Volt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Ampere
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Hertz
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Ohm
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+17. The rotating magnetic field is produced in
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Stator
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+Rotor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+Frame
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Shaft
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+18. The rotor of a squirrel cage motor is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Wound Rotor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Short Circuited Rotor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+DC Rotor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Permanent Magnet Rotor
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+19. The efficiency of AC machines is generally
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Low
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Zero
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Negative
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+High
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+20. AC machines are widely used in
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Industrial Applications
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+Only Laboratories
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+Only Schools
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+Only Houses
+</label>
+</div>
+</div>
+
+<input type="hidden" name="subject" value="A.C. Machines">
+<input type="hidden" name="semester" value="Semester 1">
+
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
 
 </form>
 
@@ -291,4 +739,3 @@ Semester 5 - A.C. Machines Quiz
 
 </body>
 </html>
-

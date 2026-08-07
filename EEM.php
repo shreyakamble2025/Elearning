@@ -1,234 +1,170 @@
 <?php
 include "connection.php";
-error_reporting(0);
 
-$subject = "Electrical And Electronic Measurement";
+$syllabus_query = mysqli_query($conn, "SELECT material_link FROM study_material WHERE material_type='syllabus' LIMIT 1");
+$syllabus_row = mysqli_fetch_assoc($syllabus_query);
 
-$syllabus_link = "#";
-$notes_link = "#";
-
-$syllabus_query = mysqli_query($conn,
-"SELECT material_link FROM study_material
-WHERE material_type='syllabus'
-AND subject='$subject'
-LIMIT 1");
-
-if($syllabus_query && mysqli_num_rows($syllabus_query)>0){
-
-    $row = mysqli_fetch_assoc($syllabus_query);
-    $syllabus_link = "uploads/".$row['material_link'];
-
+if ($syllabus_row && !empty($syllabus_row['material_link'])) {
+    $syllabus_link = "uploads/" . $syllabus_row['material_link'];
+} else {
+    $syllabus_link = "#";
 }
 
-$notes_query = mysqli_query($conn,
-"SELECT material_link FROM study_material
-WHERE material_type='notes'
-AND subject='$subject'
-LIMIT 1");
+$notes_query = mysqli_query($conn, "SELECT material_link FROM study_material WHERE material_type='notes' LIMIT 1");
+$notes_row = mysqli_fetch_assoc($notes_query);
 
-if($notes_query && mysqli_num_rows($notes_query)>0){
-
-    $row = mysqli_fetch_assoc($notes_query);
-    $notes_link = "uploads/".$row['material_link'];
-
+if ($notes_row && !empty($notes_row['material_link'])) {
+    $notes_link = "uploads/" . $notes_row['material_link'];
+} else {
+    $notes_link = "#";
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Electrical And Electronic Measurement - LearnHub</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-min-height:100vh;
-background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
-color:white;
-}
-
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:30px 0;
-}
-
-.topbar{
-display:flex;
-justify-content:center;
-margin-bottom:30px;
-}
-
-.search-box{
-width:350px;
-padding:14px 20px;
-border:none;
-border-radius:30px;
-background:rgba(255,255,255,.08);
-color:white;
-outline:none;
-}
-
-.banner{
-height:250px;
-border-radius:25px;
-background:linear-gradient(135deg,#2563eb,#9333ea);
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-margin-bottom:40px;
-}
-
-.banner h1{
-font-size:50px;
-padding:20px;
+    background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 35%,#311042 70%,#0f172a 100%);
+    min-height:100vh;
+    color:#fff;
 }
 
 .header{
-text-align:center;
-margin-bottom:40px;
+    width:100%;
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    padding:30px 20px;
+    text-align:center;
 }
 
-.header h2{
-font-size:50px;
-color:#38bdf8;
-margin-bottom:15px;
+.header h1{
+    font-size:2rem;
+    font-weight:800;
+    background:linear-gradient(135deg,#38bdf8,#818cf8);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.header p{
-font-size:22px;
-color:#d1d5db;
+.container{
+    width:min(90%,800px);
+    margin:auto;
+    padding:40px 20px;
 }
 
 .card{
-background:rgba(255,255,255,.05);
-border-radius:25px;
-padding:30px;
-backdrop-filter:blur(15px);
+    width:100%;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:24px;
+    padding:40px 30px;
 }
 
-.card h3{
-text-align:center;
-color:#38bdf8;
-font-size:35px;
-margin-bottom:25px;
+.card h2{
+    text-align:center;
+    font-size:1.5rem;
+    margin-bottom:30px;
+}
+
+.materials-grid{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
 }
 
 .item-link{
-display:flex;
-align-items:center;
-gap:15px;
-padding:18px 20px;
-margin-bottom:15px;
-text-decoration:none;
-color:white;
-background:rgba(255,255,255,.05);
-border-left:5px solid #38bdf8;
-border-radius:12px;
-transition:.3s;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:18px 22px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-left:4px solid #38bdf8;
+    border-radius:14px;
+    color:#f8fafc;
+    text-decoration:none;
+    font-size:1.05rem;
+    font-weight:600;
+    transition:0.3s;
 }
 
 .item-link:hover{
-transform:translateX(8px);
-background:rgba(56,189,248,.15);
+    background:rgba(56,189,248,0.12);
+    transform:translateX(6px);
+    color:#38bdf8;
 }
 
-.icon{
-font-size:24px;
+.item-icon{
+    font-size:1.25rem;
 }
-
-@media(max-width:768px){
-
-.banner h1{
-font-size:28px;
-}
-
-.header h2{
-font-size:32px;
-}
-
-.search-box{
-width:100%;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<header class="header">
+    <h1>Electrical And Electronic Measurement</h1>
+</header>
 
-<div class="topbar">
-<input type="text" class="search-box" placeholder="Search Materials...">
-</div>
+<main class="container">
+    <div class="card">
+        <h2>Study Materials</h2>
 
-<div class="banner">
-<h1>Electrical And Electronic Measurement</h1>
-</div>
+        <div class="materials-grid">
 
-<div class="header">
-<h2>Electrical And Electronic Measurement</h2>
-<p>
-Access syllabus, notes, video lectures,
-previous question papers, quizzes and certificates.
-</p>
-</div>
+            <!-- Syllabus -->
+            <a href="<?php echo $syllabus_link; ?>" target="_blank" class="item-link">
+                <span class="item-icon">&#128203;</span>
+                <span>Syllabus</span>
+            </a>
 
-<div class="card">
+            <!-- Notes -->
+            <a href="<?php echo $notes_link; ?>" target="_blank" class="item-link">
+                <span class="item-icon">&#128221;</span>
+                <span>Notes</span>
+            </a>
 
-<h3>Study Materials</h3>
+            <!-- Video Lectures -->
+            <a href="https://youtube.com/playlist?list=PLT3bOBUU3L9gFLFKKpMZXUSm6wrgLGadN&si=RSgbpclBuaQpw8MJ" target="_blank" class="item-link">
+                <span class="item-icon">&#127916;</span>
+                <span>Video Lectures</span>
+            </a>
 
-<a href="<?php echo $syllabus_link; ?>" target="_blank" class="item-link">
-<span class="icon">📄</span>
-Syllabus
-</a>
+            <!-- Previous Question Papers -->
+            <a href="admin/uploads/applied_math_qp.pdf" target="_blank" class="item-link">
+                <span class="item-icon">&#10067;</span>
+                <span>Previous Question Papers</span>
+            </a>
 
-<a href="<?php echo $notes_link; ?>" target="_blank" class="item-link">
-<span class="icon">📝</span>
-Notes
-</a>
+            <!-- Quiz -->
+            <a href="eem_quiz.php" class="item-link">
+                <span class="item-icon">&#9997;</span>
+                <span>Quiz</span>
+            </a>
 
-<a href="https://youtube.com/" target="_blank" class="item-link">
-<span class="icon">🎥</span>
-Video Lectures
-</a>
+            <!-- Certificate -->
+            <a href="quiz/applied_math_certificate.php" class="item-link">
+                <span class="item-icon">&#127891;</span>
+                <span>Certificate</span>
+            </a>
 
-<a href="uploads/eem_qp.pdf" target="_blank" class="item-link">
-<span class="icon">📚</span>
-Previous Question Papers
-</a>
+        </div>
 
-<a href="eem_quiz.php" class="item-link">
-<span class="icon">✍️</span>
-Quiz
-</a>
-
-<a href="ee_measurement_certificate.php" class="item-link">
-<span class="icon">🎓</span>
-Certificate
-</a>
-
-</div>
-
-</div>
+    </div>
+</main>
 
 </body>
-
 </html>

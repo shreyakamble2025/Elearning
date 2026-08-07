@@ -4,12 +4,11 @@ session_start();
 $_SESSION['subject'] = "Applied Science";
 $_SESSION['semester'] = "Semester 1";
 
-
-$_SESSION['answers']=array(
+$_SESSION['answers'] = array(
 
 1=>'B',
-2=>'C',
-3=>'A',
+2=>'A',
+3=>'C',
 4=>'D',
 5=>'A',
 6=>'B',
@@ -20,18 +19,17 @@ $_SESSION['answers']=array(
 11=>'A',
 12=>'C',
 13=>'B',
-14=>'A',
-15=>'D',
+14=>'D',
+15=>'A',
 16=>'C',
-17=>'A',
-18=>'B',
+17=>'B',
+18=>'A',
 19=>'D',
-20=>'A'
+20=>'B'
 
 );
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,705 +41,702 @@ $_SESSION['answers']=array(
 
 <title>Applied Science Quiz - LearnHub</title>
 
-
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
 }
-
 
 body{
-
-background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
-color:white;
+background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 35%,#311042 70%,#0f172a 100%);
+background-attachment:fixed;
+color:#f8fafc;
 min-height:100vh;
 padding:40px 20px;
-
+display:flex;
+justify-content:center;
 }
-
-
 
 .container{
-
-max-width:900px;
-margin:auto;
-
+width:min(100%,750px);
 }
 
-
+.header-group{
+text-align:center;
+margin-bottom:35px;
+}
 
 .heading{
-
-text-align:center;
-font-size:42px;
-color:#38bdf8;
-margin-bottom:30px;
-
+font-size:2.2rem;
+font-weight:800;
+background:linear-gradient(135deg,#38bdf8,#818cf8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:8px;
 }
 
-
+.subheading{
+color:#94a3b8;
+font-size:0.95rem;
+}
 
 .card{
-
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
-
+background:rgba(255,255,255,0.03);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:24px;
+padding:36px 30px;
+box-shadow:0 12px 40px rgba(0,0,0,0.45);
 }
 
-
-
-.question{
-
-background:rgba(255,255,255,0.05);
-padding:20px;
-margin-bottom:20px;
-border-radius:15px;
-
+.question-card{
+background:rgba(255,255,255,0.02);
+border:1px solid rgba(255,255,255,0.07);
+border-radius:16px;
+padding:22px 20px;
+margin-bottom:24px;
 }
 
-
-
-.question h3{
-
+.question-title{
+font-size:1.05rem;
+font-weight:600;
 color:#38bdf8;
-margin-bottom:15px;
-
+margin-bottom:16px;
 }
 
-
-
-label{
-
-display:block;
-padding:8px;
-
+.options-grid{
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
+.option-label{
+display:flex;
+align-items:center;
+padding:12px 16px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
 
+.option-label:hover{
+background:rgba(255,255,255,0.08);
+}
 
-.submit{
+.option-label input{
+margin-right:12px;
+}
 
+.btn-submit{
 width:100%;
-padding:15px;
-background:#0d6efd;
-color:white;
+padding:16px;
 border:none;
 border-radius:30px;
-font-size:18px;
+background:linear-gradient(135deg,#0d6efd,#0284c7);
+color:white;
+font-size:1.05rem;
+font-weight:700;
 cursor:pointer;
-
+margin-top:10px;
 }
-
 
 </style>
 
-
 </head>
-
 
 <body>
 
-
 <div class="container">
 
-
-<h1 class="heading">
-Semester 1 - Applied Science Quiz
-</h1>
-
-
+<div class="header-group">
+<h1 class="heading">Applied Science Quiz</h1>
+<p class="subheading">
+Test your knowledge across Applied Science concepts.
+</p>
+</div>
 
 <div class="card">
 
+<form action="check_quiz.php" method="post">
 
-<form action="quiz1.php" method="post">
+<div class="question-card">
+<div class="question-title">
+1. SI Unit of Length is
+</div>
 
-
-
-<div class="question">
-
-<h3>1. Chemistry is the study of</h3>
-
-<label>
-<input type="radio" name="q1" value="A">
-Plants
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Kilogram
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q1" value="B">
-Matter and its properties
+Meter
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q1" value="C">
-Animals
+Second
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q1" value="D">
-Machines
+Ampere
 </label>
-
+</div>
 </div>
 
+<div class="question-card">
+<div class="question-title">
+2. Chemical formula of Water is
+</div>
 
-
-
-<div class="question">
-
-<h3>2. SI unit of Temperature is</h3>
-
-<label>
-<input type="radio" name="q2" value="A">
-Celsius
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+H₂O
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q2" value="B">
-Fahrenheit
+CO₂
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q2" value="C">
-Kelvin
+O₂
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q2" value="D">
-Joule
-</label>
-
-</div>
-
-
-
-
-<div class="question">
-
-<h3>3. Atomic number represents</h3>
-
-<label>
-<input type="radio" name="q3" value="A">
-Number of Protons
-</label>
-
-<label>
-<input type="radio" name="q3" value="B">
-Number of Neutrons
-</label>
-
-<label>
-<input type="radio" name="q3" value="C">
-Number of Molecules
-</label>
-
-<label>
-<input type="radio" name="q3" value="D">
-Mass
-</label>
-
-</div>
-
-
-
-
-<div class="question">
-
-<h3>4. Chemical formula of Water is</h3>
-
-<label>
-<input type="radio" name="q4" value="A">
-CO2
-</label>
-
-<label>
-<input type="radio" name="q4" value="B">
-O2
-</label>
-
-<label>
-<input type="radio" name="q4" value="C">
 NaCl
 </label>
-
-<label>
-<input type="radio" name="q4" value="D">
-H2O
-</label>
-
+</div>
 </div>
 
-
-
-
-<div class="question">
-
-<h3>5. pH value of neutral solution is</h3>
-
-<label>
-<input type="radio" name="q5" value="A">
-7
-</label>
-
-<label>
-<input type="radio" name="q5" value="B">
-5
-</label>
-
-<label>
-<input type="radio" name="q5" value="C">
-10
-</label>
-
-<label>
-<input type="radio" name="q5" value="D">
-14
-</label>
-
+<div class="question-card">
+<div class="question-title">
+3. Unit of Voltage is
 </div>
 
-
-
-
-<div class="question">
-
-<h3>6. Newton is unit of</h3>
-
-<label>
-<input type="radio" name="q6" value="A">
-Energy
-</label>
-
-<label>
-<input type="radio" name="q6" value="B">
-Force
-</label>
-
-<label>
-<input type="radio" name="q6" value="C">
-Power
-</label>
-
-<label>
-<input type="radio" name="q6" value="D">
-Pressure
-</label>
-
-</div>
-
-
-
-
-<div class="question">
-
-<h3>7. Photosynthesis requires</h3>
-
-<label>
-<input type="radio" name="q7" value="A">
-Oxygen
-</label>
-
-<label>
-<input type="radio" name="q7" value="B">
-Nitrogen
-</label>
-
-<label>
-<input type="radio" name="q7" value="C">
-Sunlight
-</label>
-
-<label>
-<input type="radio" name="q7" value="D">
-Hydrogen
-</label>
-
-</div>
-
-
-
-
-<div class="question">
-
-<h3>8. Density formula is</h3>
-
-<label>
-<input type="radio" name="q8" value="A">
-Mass / Volume
-</label>
-
-<label>
-<input type="radio" name="q8" value="B">
-Volume / Mass
-</label>
-
-<label>
-<input type="radio" name="q8" value="C">
-Mass × Volume
-</label>
-
-<label>
-<input type="radio" name="q8" value="D">
-Mass + Volume
-</label>
-
-</div>
-
-
-
-
-<div class="question">
-
-<h3>9. Unit of Electrical Resistance is</h3>
-
-<label>
-<input type="radio" name="q9" value="A">
-Volt
-</label>
-
-<label>
-<input type="radio" name="q9" value="B">
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
 Ampere
 </label>
 
-<label>
-<input type="radio" name="q9" value="C">
-Watt
-</label>
-
-<label>
-<input type="radio" name="q9" value="D">
+<label class="option-label">
+<input type="radio" name="q3" value="B">
 Ohm
 </label>
 
-</div>
-
-
-
-
-<div class="question">
-
-<h3>10. Speed formula is</h3>
-
-<label>
-<input type="radio" name="q10" value="A">
-Time/Distance
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Volt
 </label>
 
-<label>
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Watt
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+4. Electron carries
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Positive Charge
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Neutral Charge
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Both
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Negative Charge
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+5. SI Unit of Mass is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Kilogram
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Meter
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Second
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Newton
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+6. SI Unit of Force is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Joule
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Newton
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Watt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Pascal
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+7. Unit of Electric Current is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Volt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+Ohm
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Ampere
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Watt
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+8. Speed of Light is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+3 × 10⁸ m/s
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+3 × 10⁶ m/s
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+3 × 10⁴ m/s
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+3 × 10² m/s
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+9. Instrument used to measure Temperature is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+Barometer
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+Voltmeter
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+Ammeter
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+Thermometer
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+10. Unit of Power is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Joule
+</label>
+
+<label class="option-label">
 <input type="radio" name="q10" value="B">
-Distance/Time
+Watt
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q10" value="C">
-Distance×Time
+Newton
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q10" value="D">
-Mass/Time
+Pascal
 </label>
-
+</div>
 </div>
 
-<div class="question">
+<div class="question-card">
+<div class="question-title">
+11. pH value of Pure Water is
+</div>
 
-<h3>11. Unit of Work is</h3>
-
-<label>
-<input type="radio" name="q11" value="A">
-Joule
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+7
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q11" value="B">
-Newton
+5
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q11" value="C">
+9
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+1
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+12. Chemical Symbol of Sodium is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+S
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+So
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Na
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+N
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+13. Unit of Resistance is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Volt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+Ohm
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Ampere
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Watt
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+14. Gas Essential for Respiration is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+Nitrogen
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Hydrogen
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+Carbon Dioxide
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Oxygen
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+15. SI Unit of Energy is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
 Watt
 </label>
 
-<label>
-<input type="radio" name="q11" value="D">
-Pascal
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>12. Light travels fastest in</h3>
-
-<label>
-<input type="radio" name="q12" value="A">
-Water
-</label>
-
-<label>
-<input type="radio" name="q12" value="B">
-Glass
-</label>
-
-<label>
-<input type="radio" name="q12" value="C">
-Vacuum
-</label>
-
-<label>
-<input type="radio" name="q12" value="D">
-Air
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>13. Formula of Force is</h3>
-
-<label>
-<input type="radio" name="q13" value="A">
-Mass/Acceleration
-</label>
-
-<label>
-<input type="radio" name="q13" value="B">
-Mass × Acceleration
-</label>
-
-<label>
-<input type="radio" name="q13" value="C">
-Distance/Time
-</label>
-
-<label>
-<input type="radio" name="q13" value="D">
-Work/Time
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>14. SI unit of Pressure is</h3>
-
-<label>
-<input type="radio" name="q14" value="A">
-Pascal
-</label>
-
-<label>
-<input type="radio" name="q14" value="B">
+<label class="option-label">
+<input type="radio" name="q15" value="B">
 Newton
 </label>
 
-<label>
-<input type="radio" name="q14" value="C">
+<label class="option-label">
+<input type="radio" name="q15" value="C">
 Joule
 </label>
 
-<label>
-<input type="radio" name="q14" value="D">
-Watt
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>15. Vitamin C deficiency causes</h3>
-
-<label>
-<input type="radio" name="q15" value="A">
-Rickets
-</label>
-
-<label>
-<input type="radio" name="q15" value="B">
-Night Blindness
-</label>
-
-<label>
-<input type="radio" name="q15" value="C">
-Beriberi
-</label>
-
-<label>
+<label class="option-label">
 <input type="radio" name="q15" value="D">
-Scurvy
+Pascal
 </label>
-
+</div>
 </div>
 
 
+<div class="question-card">
+<div class="question-title">
+16. Which vitamin is produced by sunlight?
+</div>
 
-<div class="question">
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Vitamin A
+</label>
 
-<h3>16. Metal used in electrical wires is</h3>
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Vitamin B
+</label>
 
-<label>
-<input type="radio" name="q16" value="A">
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Vitamin D
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Vitamin K
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+17. Metal used in electric wires is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
 Iron
 </label>
 
-<label>
-<input type="radio" name="q16" value="B">
-Gold
-</label>
-
-<label>
-<input type="radio" name="q16" value="C">
+<label class="option-label">
+<input type="radio" name="q17" value="B">
 Copper
 </label>
 
-<label>
-<input type="radio" name="q16" value="D">
-Silver
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>17. Energy stored in a battery is</h3>
-
-<label>
-<input type="radio" name="q17" value="A">
-Chemical Energy
-</label>
-
-<label>
-<input type="radio" name="q17" value="B">
-Heat Energy
-</label>
-
-<label>
+<label class="option-label">
 <input type="radio" name="q17" value="C">
-Sound Energy
+Aluminium
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q17" value="D">
-Light Energy
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>18. Human blood contains</h3>
-
-<label>
-<input type="radio" name="q18" value="A">
-Neurons
-</label>
-
-<label>
-<input type="radio" name="q18" value="B">
-Red Blood Cells
-</label>
-
-<label>
-<input type="radio" name="q18" value="C">
-Bones
-</label>
-
-<label>
-<input type="radio" name="q18" value="D">
-Muscles
-</label>
-
-</div>
-
-
-
-<div class="question">
-
-<h3>19. The hardest natural substance is</h3>
-
-<label>
-<input type="radio" name="q19" value="A">
-Iron
-</label>
-
-<label>
-<input type="radio" name="q19" value="B">
-Gold
-</label>
-
-<label>
-<input type="radio" name="q19" value="C">
 Silver
 </label>
+</div>
+</div>
 
-<label>
+<div class="question-card">
+<div class="question-title">
+18. Which planet is known as the Red Planet?
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Mars
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Venus
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+Earth
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Jupiter
+</label>
+</div>
+</div>
+
+<div class="question-card">
+<div class="question-title">
+19. Instrument used to measure Electric Current is
+</div>
+
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Voltmeter
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Ohmmeter
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Thermometer
+</label>
+
+<label class="option-label">
 <input type="radio" name="q19" value="D">
-Diamond
+Ammeter
 </label>
-
+</div>
 </div>
 
+<div class="question-card">
+<div class="question-title">
+20. Centre of an Atom is called
+</div>
 
-
-<div class="question">
-
-<h3>20. Study of living organisms is called</h3>
-
-<label>
-<input type="radio" name="q20" value="A">
-Biology
+<div class="options-grid">
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Nucleus
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q20" value="B">
-Physics
+Electron
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q20" value="C">
-Chemistry
+Proton
 </label>
 
-<label>
+<label class="option-label">
 <input type="radio" name="q20" value="D">
-Mathematics
+Neutron
 </label>
-
+</div>
 </div>
 
+<input type="hidden" name="subject" value="Applied Science">
+<input type="hidden" name="semester" value="Semester 1">
 
-
-<input type="submit" class="submit" value="Submit Quiz">
-
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
 
 </form>
 
-
 </div>
 
 </div>
-
 
 </body>
-
 </html>

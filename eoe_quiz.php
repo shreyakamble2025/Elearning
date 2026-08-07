@@ -1,27 +1,26 @@
-
 <?php
 session_start();
 
-$_SESSION['subject'] = "Elements of Electrical Engineering";
-$_SESSION['semester'] = "Semester 3";
+$_SESSION['subject'] = "Elements of Engineering (EOE)";
+$_SESSION['semester'] = "Semester 1";
 
-$_SESSION['answers']=array(
+$_SESSION['answers'] = array(
 
 1=>'B',
-2=>'A',
-3=>'C',
+2=>'C',
+3=>'A',
 4=>'D',
-5=>'A',
-6=>'B',
-7=>'C',
-8=>'A',
-9=>'D',
-10=>'B',
+5=>'B',
+6=>'A',
+7=>'B',
+8=>'C',
+9=>'A',
+10=>'A',
 11=>'A',
-12=>'C',
+12=>'A',
 13=>'B',
 14=>'A',
-15=>'D',
+15=>'A',
 16=>'C',
 17=>'A',
 18=>'B',
@@ -40,7 +39,7 @@ $_SESSION['answers']=array(
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Elements of Electrical Engineering Quiz - LearnHub</title>
+<title>Elements of Engineering Quiz - LearnHub</title>
 
 <style>
 
@@ -48,256 +47,802 @@ $_SESSION['answers']=array(
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
 }
 
 body{
-
-background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
-color:white;
+background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 35%,#311042 70%,#0f172a 100%);
+background-attachment:fixed;
+color:#f8fafc;
 min-height:100vh;
 padding:40px 20px;
-
+display:flex;
+justify-content:center;
 }
 
 .container{
+width:min(100%,750px);
+}
 
-max-width:900px;
-margin:auto;
-
+.header-group{
+text-align:center;
+margin-bottom:35px;
 }
 
 .heading{
+font-size:2.2rem;
+font-weight:800;
+background:linear-gradient(135deg,#38bdf8,#818cf8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:8px;
+}
 
-text-align:center;
-font-size:42px;
-color:#38bdf8;
-margin-bottom:30px;
-
+.subheading{
+color:#94a3b8;
+font-size:0.95rem;
 }
 
 .card{
-
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
-
+background:rgba(255,255,255,0.03);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:24px;
+padding:36px 30px;
+box-shadow:0 12px 40px rgba(0,0,0,0.45);
 }
 
-.question{
-
-background:rgba(255,255,255,0.05);
-padding:20px;
-margin-bottom:20px;
-border-radius:15px;
-
+.question-card{
+background:rgba(255,255,255,0.02);
+border:1px solid rgba(255,255,255,0.07);
+border-radius:16px;
+padding:22px 20px;
+margin-bottom:24px;
 }
 
-.question h3{
-
+.question-title{
+font-size:1.05rem;
+font-weight:600;
 color:#38bdf8;
-margin-bottom:15px;
-
+margin-bottom:16px;
 }
 
-label{
-
-display:block;
-padding:8px;
-
+.options-grid{
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
-.submit{
+.option-label{
+display:flex;
+align-items:center;
+padding:12px 16px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
 
+.option-label:hover{
+background:rgba(255,255,255,0.08);
+}
+
+.option-label input{
+margin-right:12px;
+}
+
+.btn-submit{
 width:100%;
-padding:15px;
-background:#0d6efd;
-color:white;
+padding:16px;
 border:none;
 border-radius:30px;
-font-size:18px;
+background:linear-gradient(135deg,#0d6efd,#0284c7);
+color:white;
+font-size:1.05rem;
+font-weight:700;
 cursor:pointer;
-
+margin-top:10px;
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
+
+<div class="header-group">
+
 <h1 class="heading">
-Semester 3 - Elements of Electrical Engineering Quiz
+Elements of Engineering (EOE) Quiz
 </h1>
+
+<p class="subheading">
+Test your knowledge across Engineering concepts.
+</p>
+
+</div>
+
 
 <div class="card">
 
-<form action="quiz1.php" method="post">
 
-<div class="question">
-<h3>1. Electric current is measured in</h3>
-<label><input type="radio" name="q1" value="A"> Volt</label>
-<label><input type="radio" name="q1" value="B"> Ampere</label>
-<label><input type="radio" name="q1" value="C"> Ohm</label>
-<label><input type="radio" name="q1" value="D"> Watt</label>
+<form action="check_quiz.php" method="post">
+
+
+<div class="question-card">
+
+<div class="question-title">
+1. Engineering drawing is mainly used for
 </div>
 
-<div class="question">
-<h3>2. Unit of voltage is</h3>
-<label><input type="radio" name="q2" value="A"> Volt</label>
-<label><input type="radio" name="q2" value="B"> Ampere</label>
-<label><input type="radio" name="q2" value="C"> Ohm</label>
-<label><input type="radio" name="q2" value="D"> Henry</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+A) Calculation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+B) Communication of ideas
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+C) Programming
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+D) Manufacturing only
+</label>
+
 </div>
 
-<div class="question">
-<h3>3. Resistance is measured in</h3>
-<label><input type="radio" name="q3" value="A"> Watt</label>
-<label><input type="radio" name="q3" value="B"> Volt</label>
-<label><input type="radio" name="q3" value="C"> Ohm</label>
-<label><input type="radio" name="q3" value="D"> Ampere</label>
 </div>
 
-<div class="question">
-<h3>4. Unit of power is</h3>
-<label><input type="radio" name="q4" value="A"> Joule</label>
-<label><input type="radio" name="q4" value="B"> Volt</label>
-<label><input type="radio" name="q4" value="C"> Ampere</label>
-<label><input type="radio" name="q4" value="D"> Watt</label>
+
+
+<div class="question-card">
+
+<div class="question-title">
+2. SI unit of force is
 </div>
 
-<div class="question">
-<h3>5. Ohm's law is V =</h3>
-<label><input type="radio" name="q5" value="A"> IR</label>
-<label><input type="radio" name="q5" value="B"> I/R</label>
-<label><input type="radio" name="q5" value="C"> R/I</label>
-<label><input type="radio" name="q5" value="D"> VI</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+A) Joule
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+B) Watt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+C) Newton
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+D) Pascal
+</label>
+
 </div>
 
-<div class="question">
-<h3>6. Electric energy is measured in</h3>
-<label><input type="radio" name="q6" value="A"> Watt</label>
-<label><input type="radio" name="q6" value="B"> kWh</label>
-<label><input type="radio" name="q6" value="C"> Volt</label>
-<label><input type="radio" name="q6" value="D"> Ampere</label>
 </div>
 
-<div class="question">
-<h3>7. Unit of capacitance is</h3>
-<label><input type="radio" name="q7" value="A"> Henry</label>
-<label><input type="radio" name="q7" value="B"> Ohm</label>
-<label><input type="radio" name="q7" value="C"> Farad</label>
-<label><input type="radio" name="q7" value="D"> Watt</label>
+<div class="question-card">
+
+<div class="question-title">
+3. Which material is used in construction?
 </div>
 
-<div class="question">
-<h3>8. Series circuit has</h3>
-<label><input type="radio" name="q8" value="A"> One current path</label>
-<label><input type="radio" name="q8" value="B"> Two paths</label>
-<label><input type="radio" name="q8" value="C"> Three paths</label>
-<label><input type="radio" name="q8" value="D"> Four paths</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+A) Cement
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+B) Plastic
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+C) Rubber
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+D) Glass
+</label>
+
+</div>
 </div>
 
-<div class="question">
-<h3>9. Fuse is used for</h3>
-<label><input type="radio" name="q9" value="A"> Lighting</label>
-<label><input type="radio" name="q9" value="B"> Measuring voltage</label>
-<label><input type="radio" name="q9" value="C"> Decoration</label>
-<label><input type="radio" name="q9" value="D"> Protection</label>
+
+<div class="question-card">
+
+<div class="question-title">
+4. Full form of CAD is
 </div>
 
-<div class="question">
-<h3>10. Ammeter is connected in</h3>
-<label><input type="radio" name="q10" value="A"> Parallel</label>
-<label><input type="radio" name="q10" value="B"> Series</label>
-<label><input type="radio" name="q10" value="C"> Open circuit</label>
-<label><input type="radio" name="q10" value="D"> Ground</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+A) Computer Applied Design
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+B) Computer Automatic Drawing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+C) Common Auto Design
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+D) Computer Aided Design
+</label>
+
+</div>
 </div>
 
-<div class="question">
-<h3>11. Voltmeter is connected in</h3>
-<label><input type="radio" name="q11" value="A"> Parallel</label>
-<label><input type="radio" name="q11" value="B"> Series</label>
-<label><input type="radio" name="q11" value="C"> Short circuit</label>
-<label><input type="radio" name="q11" value="D"> Ground</label>
+
+
+<div class="question-card">
+
+<div class="question-title">
+5. Strength of material is measured by
 </div>
 
-<div class="question">
-<h3>12. Unit of inductance is</h3>
-<label><input type="radio" name="q12" value="A"> Farad</label>
-<label><input type="radio" name="q12" value="B"> Ohm</label>
-<label><input type="radio" name="q12" value="C"> Henry</label>
-<label><input type="radio" name="q12" value="D"> Volt</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+A) Density
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+B) Stress
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+C) Volume
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+D) Length
+</label>
+
+</div>
 </div>
 
-<div class="question">
-<h3>13. MCB stands for</h3>
-<label><input type="radio" name="q13" value="A"> Main Control Board</label>
-<label><input type="radio" name="q13" value="B"> Miniature Circuit Breaker</label>
-<label><input type="radio" name="q13" value="C"> Main Circuit Box</label>
-<label><input type="radio" name="q13" value="D"> Motor Control Breaker</label>
+
+
+<div class="question-card">
+
+<div class="question-title">
+6. Unit of pressure is
 </div>
 
-<div class="question">
-<h3>14. Electrical power is calculated by</h3>
-<label><input type="radio" name="q14" value="A"> V × I</label>
-<label><input type="radio" name="q14" value="B"> V/I</label>
-<label><input type="radio" name="q14" value="C"> I/R</label>
-<label><input type="radio" name="q14" value="D"> R×I²</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+A) Pascal
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+B) Newton
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+C) Joule
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+D) Watt
+</label>
+
+</div>
 </div>
 
-<div class="question">
-<h3>15. Transformer works on</h3>
-<label><input type="radio" name="q15" value="A"> Resistance</label>
-<label><input type="radio" name="q15" value="B"> Capacitance</label>
-<label><input type="radio" name="q15" value="C"> Induction Heating</label>
-<label><input type="radio" name="q15" value="D"> Mutual Induction</label>
+
+
+<div class="question-card">
+
+<div class="question-title">
+7. Concrete is a mixture of
 </div>
 
-<div class="question">
-<h3>16. AC stands for</h3>
-<label><input type="radio" name="q16" value="A"> Active Current</label>
-<label><input type="radio" name="q16" value="B"> Automatic Current</label>
-<label><input type="radio" name="q16" value="C"> Alternating Current</label>
-<label><input type="radio" name="q16" value="D"> Applied Current</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+A) Steel and wood
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+B) Cement, sand and aggregate
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+C) Plastic and rubber
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+D) Iron only
+</label>
+
+</div>
 </div>
 
-<div class="question">
-<h3>17. DC stands for</h3>
-<label><input type="radio" name="q17" value="A"> Direct Current</label>
-<label><input type="radio" name="q17" value="B"> Dynamic Current</label>
-<label><input type="radio" name="q17" value="C"> Double Current</label>
-<label><input type="radio" name="q17" value="D"> Differential Current</label>
+
+
+<div class="question-card">
+
+<div class="question-title">
+8. Instrument used to measure temperature is
 </div>
 
-<div class="question">
-<h3>18. Earth wire is used for</h3>
-<label><input type="radio" name="q18" value="A"> Lighting</label>
-<label><input type="radio" name="q18" value="B"> Safety</label>
-<label><input type="radio" name="q18" value="C"> Heating</label>
-<label><input type="radio" name="q18" value="D"> Decoration</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+A) Barometer
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+B) Ammeter
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+C) Thermometer
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+D) Voltmeter
+</label>
+
+</div>
 </div>
 
-<div class="question">
-<h3>19. Short circuit causes</h3>
-<label><input type="radio" name="q19" value="A"> Low current</label>
-<label><input type="radio" name="q19" value="B"> No current</label>
-<label><input type="radio" name="q19" value="C"> Normal operation</label>
-<label><input type="radio" name="q19" value="D"> Excess current</label>
+
+
+<div class="question-card">
+
+<div class="question-title">
+9. Welding is a process of joining
 </div>
 
-<div class="question">
-<h3>20. Electrical engineering mainly deals with</h3>
-<label><input type="radio" name="q20" value="A"> Generation, transmission and utilization of electricity</label>
-<label><input type="radio" name="q20" value="B"> Building construction</label>
-<label><input type="radio" name="q20" value="C"> Water supply</label>
-<label><input type="radio" name="q20" value="D"> Agriculture</label>
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+A) Two metals
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+B) Two plastics
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+C) Two glasses
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+D) Two papers
+</label>
+
+</div>
 </div>
 
-<input type="submit" class="submit" value="Submit Quiz">
+
+
+<div class="question-card">
+
+<div class="question-title">
+10. Basic unit of length in SI system is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+A) Meter
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+B) Kilogram
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+C) Second
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+D) Ampere
+</label>
+
+</div>
+</div>
+
+<!-- Question 11 -->
+
+<div class="question-card">
+
+<div class="question-title">
+11. Which material has high tensile strength?
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+A) Steel
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+B) Wood
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+C) Plastic
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+D) Rubber
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+12. Surveying is related to measurement of
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+A) Land
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+B) Temperature
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+C) Electricity
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+D) Pressure
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+13. Machine converts mechanical energy into electrical energy
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+A) Motor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+B) Generator
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+C) Transformer
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+D) Battery
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+14. Protection of steel from corrosion is called
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+A) Galvanizing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+B) Cutting
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+C) Welding
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+D) Casting
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+15. Front view of an object is represented by
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+A) Orthographic projection
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+B) Graph
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+C) Flow chart
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+D) Map
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+16. Cement is mainly used in
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+A) Cooking
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+B) Painting
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+C) Construction
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+D) Electrical work
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+17. A beam is mainly used to resist
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+A) Bending
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+B) Heating
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+C) Lighting
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+D) Cooling
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+18. SI unit of work is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+A) Newton
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+B) Joule
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+C) Watt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+D) Pascal
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+19. A force has
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+A) Only magnitude
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+B) Only direction
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+C) Only length
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+D) Magnitude and Direction
+</label>
+
+</div>
+</div>
+
+
+
+<div class="question-card">
+
+<div class="question-title">
+20. Study of motion is called
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+A) Kinematics
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+B) Chemistry
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+C) Biology
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+D) Drawing
+</label>
+
+</div>
+</div>
+
+
+
+<input type="hidden" name="subject" value="Elements of Engineering (EOE)">
+
+<input type="hidden" name="semester" value="Semester 1">
+
+
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
+
 
 </form>
 
@@ -305,6 +850,7 @@ Semester 3 - Elements of Electrical Engineering Quiz
 
 </div>
 
-</body>
-</html>
 
+</body>
+
+</html>

@@ -2,8 +2,7 @@
 session_start();
 
 $_SESSION['subject'] = "Construction Project Management";
-$_SESSION['semester'] = "Semester 3";
-
+$_SESSION['semester'] = "Semester 5";
 
 $_SESSION['answers']=array(
 
@@ -11,22 +10,12 @@ $_SESSION['answers']=array(
 2=>'A',
 3=>'C',
 4=>'D',
-5=>'A',
-6=>'B',
+5=>'B',
+6=>'A',
 7=>'C',
-8=>'A',
-9=>'D',
-10=>'B',
-11=>'A',
-12=>'C',
-13=>'B',
-14=>'A',
-15=>'D',
-16=>'C',
-17=>'A',
-18=>'B',
-19=>'D',
-20=>'A'
+8=>'D',
+9=>'B',
+10=>'A'
 
 );
 
@@ -52,79 +41,82 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-
 background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042);
 color:white;
 min-height:100vh;
 padding:40px 20px;
-
 }
 
 .container{
-
 max-width:900px;
 margin:auto;
-
 }
 
 .heading{
-
 text-align:center;
 font-size:42px;
 color:#38bdf8;
-margin-bottom:30px;
+margin-bottom:10px;
+}
 
+.subheading{
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
 }
 
 .card{
-
 background:rgba(255,255,255,0.06);
 backdrop-filter:blur(15px);
 padding:30px;
 border-radius:20px;
-
 }
 
-.question{
-
+.question-card{
 background:rgba(255,255,255,0.05);
 padding:20px;
 margin-bottom:20px;
 border-radius:15px;
-
 }
 
-.question h3{
-
+.question-title{
 color:#38bdf8;
 margin-bottom:15px;
-
+font-size:18px;
 }
 
-label{
+.options-grid{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
 
+.option-label{
 display:block;
-padding:8px;
-
+padding:10px;
+background:rgba(255,255,255,0.05);
+border-radius:10px;
+cursor:pointer;
 }
 
-.submit{
+.option-label input{
+margin-right:10px;
+}
 
+.btn-submit{
 width:100%;
 padding:15px;
-background:#0d6efd;
-color:white;
 border:none;
 border-radius:30px;
+background:#0d6efd;
+color:white;
 font-size:18px;
 cursor:pointer;
-
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -133,237 +125,685 @@ cursor:pointer;
 
 
 <h1 class="heading">
-Semester 3 - Construction Project Management Quiz
+Construction Project Management Quiz
 </h1>
+
+
+<p class="subheading">
+Test your knowledge of Construction Project Management.
+</p>
 
 
 <div class="card">
 
 
-<form action="quiz1.php" method="post">
+<form action="check_quiz.php" method="post">
 
 
-<div class="question">
-<h3>1. Project management deals with</h3>
+<div class="question-card">
 
-<label><input type="radio" name="q1" value="A"> Painting Work</label>
-<label><input type="radio" name="q1" value="B"> Planning and Controlling Projects</label>
-<label><input type="radio" name="q1" value="C"> Road Repair</label>
-<label><input type="radio" name="q1" value="D"> Building Materials</label>
+<div class="question-title">
+1. Project management is mainly concerned with
+</div>
 
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q1" value="A" required>
+Only construction work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="B">
+Planning, controlling and completing projects
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="C">
+Material testing only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q1" value="D">
+Survey work only
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>2. Main objective of project management is</h3>
 
-<label><input type="radio" name="q2" value="A"> Complete Project on Time and Budget</label>
-<label><input type="radio" name="q2" value="B"> Decoration</label>
-<label><input type="radio" name="q2" value="C"> Increase Cost</label>
-<label><input type="radio" name="q2" value="D"> Reduce Quality</label>
+<div class="question-card">
 
+<div class="question-title">
+2. The first stage of construction project is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q2" value="A" required>
+Planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="B">
+Demolition
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="C">
+Painting
+</label>
+
+<label class="option-label">
+<input type="radio" name="q2" value="D">
+Finishing
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>3. CPM stands for</h3>
 
-<label><input type="radio" name="q3" value="A"> Construction Planning Method</label>
-<label><input type="radio" name="q3" value="B"> Cost Planning Management</label>
-<label><input type="radio" name="q3" value="C"> Critical Path Method</label>
-<label><input type="radio" name="q3" value="D"> Concrete Project Method</label>
+<div class="question-card">
 
+<div class="question-title">
+3. CPM stands for
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q3" value="A" required>
+Construction Project Method
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="B">
+Cost Project Management
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="C">
+Critical Path Method
+</label>
+
+<label class="option-label">
+<input type="radio" name="q3" value="D">
+Control Planning Method
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>4. PERT is used for</h3>
 
-<label><input type="radio" name="q4" value="A"> Building Design</label>
-<label><input type="radio" name="q4" value="B"> Material Testing</label>
-<label><input type="radio" name="q4" value="C"> Road Construction</label>
-<label><input type="radio" name="q4" value="D"> Project Scheduling</label>
+<div class="question-card">
 
+<div class="question-title">
+4. PERT is used for
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q4" value="A" required>
+Material testing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="B">
+Building design
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="C">
+Cost calculation
+</label>
+
+<label class="option-label">
+<input type="radio" name="q4" value="D">
+Project scheduling
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>5. A project has three main constraints called</h3>
 
-<label><input type="radio" name="q5" value="A"> Time, Cost and Quality</label>
-<label><input type="radio" name="q5" value="B"> Colour, Shape and Size</label>
-<label><input type="radio" name="q5" value="C"> Soil, Water and Air</label>
-<label><input type="radio" name="q5" value="D"> Cement, Steel and Sand</label>
+<div class="question-card">
 
+<div class="question-title">
+5. The main objective of project management is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q5" value="A" required>
+Increase delay
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="B">
+Complete project within time and cost
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="C">
+Waste resources
+</label>
+
+<label class="option-label">
+<input type="radio" name="q5" value="D">
+Reduce quality
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+
+<div class="question-title">
+6. Bar chart is used for
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q6" value="A" required>
+Project scheduling
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="B">
+Material testing
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="C">
+Surveying
+</label>
+
+<label class="option-label">
+<input type="radio" name="q6" value="D">
+Designing structure
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>6. Bar chart is also known as</h3>
 
-<label><input type="radio" name="q6" value="A"> Flow Chart</label>
-<label><input type="radio" name="q6" value="B"> Gantt Chart</label>
-<label><input type="radio" name="q6" value="C"> Pie Chart</label>
-<label><input type="radio" name="q6" value="D"> Design Chart</label>
+<div class="question-card">
 
+<div class="question-title">
+7. A project is completed successfully when it satisfies
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q7" value="A" required>
+Only quality
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="B">
+Only cost
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="C">
+Time, cost and quality
+</label>
+
+<label class="option-label">
+<input type="radio" name="q7" value="D">
+Only speed
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>7. Estimation determines</h3>
 
-<label><input type="radio" name="q7" value="A"> Colour</label>
-<label><input type="radio" name="q7" value="B"> Shape</label>
-<label><input type="radio" name="q7" value="C"> Project Cost</label>
-<label><input type="radio" name="q7" value="D"> Height</label>
+<div class="question-card">
 
+<div class="question-title">
+8. Resources in construction include
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q8" value="A" required>
+Only materials
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="B">
+Only labour
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="C">
+Only machines
+</label>
+
+<label class="option-label">
+<input type="radio" name="q8" value="D">
+Material, labour and equipment
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>8. Scheduling means</h3>
 
-<label><input type="radio" name="q8" value="A"> Planning Project Activities</label>
-<label><input type="radio" name="q8" value="B"> Painting</label>
-<label><input type="radio" name="q8" value="C"> Demolition</label>
-<label><input type="radio" name="q8" value="D"> Decoration</label>
+<div class="question-card">
 
+<div class="question-title">
+9. The critical path represents
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q9" value="A" required>
+Shortest activity path
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="B">
+Longest duration path of activities
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="C">
+Cost calculation method
+</label>
+
+<label class="option-label">
+<input type="radio" name="q9" value="D">
+Quality control method
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>9. CPM network shows</h3>
 
-<label><input type="radio" name="q9" value="A"> Materials</label>
-<label><input type="radio" name="q9" value="B"> Cost</label>
-<label><input type="radio" name="q9" value="C"> Labour</label>
-<label><input type="radio" name="q9" value="D"> Project Activities</label>
+<div class="question-card">
 
+<div class="question-title">
+10. Scheduling helps in
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q10" value="A" required>
+Proper planning of activities
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="B">
+Increasing wastage
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="C">
+Reducing safety
+</label>
+
+<label class="option-label">
+<input type="radio" name="q10" value="D">
+Stopping project work
+</label>
+
+</div>
+</div>
+
+<div class="question-card">
+
+<div class="question-title">
+11. Quality control in construction ensures
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q11" value="A" required>
+Good quality of work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="B">
+Delay in work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="C">
+Increase in cost
+</label>
+
+<label class="option-label">
+<input type="radio" name="q11" value="D">
+Material wastage
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>10. Resource management includes</h3>
 
-<label><input type="radio" name="q10" value="A"> Decoration</label>
-<label><input type="radio" name="q10" value="B"> Labour and Materials</label>
-<label><input type="radio" name="q10" value="C"> Colour Selection</label>
-<label><input type="radio" name="q10" value="D"> Building Height</label>
+<div class="question-card">
 
+<div class="question-title">
+12. Estimation is done to determine
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q12" value="A" required>
+Project cost
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="B">
+Colour of building
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="C">
+Soil type only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q12" value="D">
+Weather condition
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>11. Safety management reduces</h3>
 
-<label><input type="radio" name="q11" value="A"> Accidents</label>
-<label><input type="radio" name="q11" value="B"> Quality</label>
-<label><input type="radio" name="q11" value="C"> Time</label>
-<label><input type="radio" name="q11" value="D"> Cost</label>
+<div class="question-card">
 
+<div class="question-title">
+13. Tendering process is related to
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q13" value="A" required>
+Selection of contractor
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="B">
+Painting work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="C">
+Testing materials only
+</label>
+
+<label class="option-label">
+<input type="radio" name="q13" value="D">
+Surveying land
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>12. Tender is related to</h3>
 
-<label><input type="radio" name="q12" value="A"> Painting</label>
-<label><input type="radio" name="q12" value="B"> Design</label>
-<label><input type="radio" name="q12" value="C"> Contract Work</label>
-<label><input type="radio" name="q12" value="D"> Decoration</label>
+<div class="question-card">
 
+<div class="question-title">
+14. Safety management is important to
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q14" value="A" required>
+Prevent accidents
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="B">
+Increase delay
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="C">
+Increase cost
+</label>
+
+<label class="option-label">
+<input type="radio" name="q14" value="D">
+Reduce quality
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>13. Quality control ensures</h3>
 
-<label><input type="radio" name="q13" value="A"> Delay</label>
-<label><input type="radio" name="q13" value="B"> Good Quality Work</label>
-<label><input type="radio" name="q13" value="C"> Extra Cost</label>
-<label><input type="radio" name="q13" value="D"> Waste</label>
+<div class="question-card">
 
+<div class="question-title">
+15. Construction planning includes
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q15" value="A" required>
+Scheduling and resource planning
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="B">
+Only painting
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="C">
+Only demolition
+</label>
+
+<label class="option-label">
+<input type="radio" name="q15" value="D">
+Only inspection
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>14. Construction manager controls</h3>
 
-<label><input type="radio" name="q14" value="A"> Project Activities</label>
-<label><input type="radio" name="q14" value="B"> Weather</label>
-<label><input type="radio" name="q14" value="C"> Soil Colour</label>
-<label><input type="radio" name="q14" value="D"> Decoration</label>
+<div class="question-card">
 
+<div class="question-title">
+16. Gantt chart was developed by
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q16" value="A" required>
+Henry Gantt
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="B">
+Newton
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="C">
+Einstein
+</label>
+
+<label class="option-label">
+<input type="radio" name="q16" value="D">
+Darwin
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>15. Delay in project increases</h3>
 
-<label><input type="radio" name="q15" value="A"> Quality</label>
-<label><input type="radio" name="q15" value="B"> Safety</label>
-<label><input type="radio" name="q15" value="C"> Efficiency</label>
-<label><input type="radio" name="q15" value="D"> Cost</label>
+<div class="question-card">
 
+<div class="question-title">
+17. Cost control helps in
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q17" value="A" required>
+Managing project expenses
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="B">
+Increasing wastage
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="C">
+Reducing quality
+</label>
+
+<label class="option-label">
+<input type="radio" name="q17" value="D">
+Stopping work
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>16. Inventory management controls</h3>
 
-<label><input type="radio" name="q16" value="A"> Design</label>
-<label><input type="radio" name="q16" value="B"> Labour</label>
-<label><input type="radio" name="q16" value="C"> Materials</label>
-<label><input type="radio" name="q16" value="D"> Buildings</label>
+<div class="question-card">
 
+<div class="question-title">
+18. A contractor is responsible for
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q18" value="A" required>
+Executing construction work
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="B">
+Preparing weather report
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="C">
+Designing only drawings
+</label>
+
+<label class="option-label">
+<input type="radio" name="q18" value="D">
+Land surveying only
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>17. Construction planning helps in</h3>
 
-<label><input type="radio" name="q17" value="A"> Efficient Execution</label>
-<label><input type="radio" name="q17" value="B"> Decoration</label>
-<label><input type="radio" name="q17" value="C"> Painting</label>
-<label><input type="radio" name="q17" value="D"> Storage</label>
+<div class="question-card">
 
+<div class="question-title">
+19. Risk management identifies
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q19" value="A" required>
+Possible project risks
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="B">
+Building colour
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="C">
+Material shape
+</label>
+
+<label class="option-label">
+<input type="radio" name="q19" value="D">
+Road width
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>18. Project monitoring checks</h3>
 
-<label><input type="radio" name="q18" value="A"> Colour</label>
-<label><input type="radio" name="q18" value="B"> Progress</label>
-<label><input type="radio" name="q18" value="C"> Height</label>
-<label><input type="radio" name="q18" value="D"> Shape</label>
+<div class="question-card">
 
+<div class="question-title">
+20. The main aim of construction project management is
+</div>
+
+<div class="options-grid">
+
+<label class="option-label">
+<input type="radio" name="q20" value="A" required>
+Complete project successfully within time and budget
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="B">
+Increase project delay
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="C">
+Waste resources
+</label>
+
+<label class="option-label">
+<input type="radio" name="q20" value="D">
+Reduce safety
+</label>
+
+</div>
 </div>
 
 
-<div class="question">
-<h3>19. Risk management identifies</h3>
 
-<label><input type="radio" name="q19" value="A"> Materials</label>
-<label><input type="radio" name="q19" value="B"> Labour</label>
-<label><input type="radio" name="q19" value="C"> Cost</label>
-<label><input type="radio" name="q19" value="D"> Project Risks</label>
+<input type="hidden" name="subject" value="Construction Project Management">
 
-</div>
+<input type="hidden" name="semester" value="Semester 5">
 
 
-<div class="question">
-<h3>20. Successful project requires</h3>
-
-<label><input type="radio" name="q20" value="A"> Proper Planning and Management</label>
-<label><input type="radio" name="q20" value="B"> Decoration</label>
-<label><input type="radio" name="q20" value="C"> Extra Cost</label>
-<label><input type="radio" name="q20" value="D"> Delay</label>
-
-</div>
-
-
-<input type="submit" class="submit" value="Submit Quiz">
+<button type="submit" class="btn-submit">
+Submit Quiz
+</button>
 
 
 </form>
@@ -371,7 +811,6 @@ Semester 3 - Construction Project Management Quiz
 </div>
 
 </div>
-
 
 </body>
 
