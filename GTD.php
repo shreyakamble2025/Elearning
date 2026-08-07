@@ -144,7 +144,7 @@ body{
             </a>
 
             <!-- Previous Question Papers -->
-            <a href="admin/uploads/applied_math_qp.pdf" target="_blank" class="item-link">
+            <a href="ee_pepar_GTD.php" target="_blank" class="item-link">
                 <span class="item-icon">&#10067;</span>
                 <span>Previous Question Papers</span>
             </a>

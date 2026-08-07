@@ -144,7 +144,7 @@ body{
             </a>
 
             <!-- Previous Question Papers -->
-            <a href="admin/uploads/engineering_mechanics_qp.pdf" target="_blank" class="item-link">
+            <a href="ce_pepar_s3_steng_of_mate.php" target="_blank" class="item-link">
                 <span class="item-icon">&#10067;</span>
                 <span>Previous Question Papers</span>
             </a>

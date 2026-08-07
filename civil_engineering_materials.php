@@ -144,7 +144,7 @@ body{
             </a>
 
             <!-- Previous Question Papers -->
-            <a href="admin/uploads/building_material_construction_qp.pdf" target="_blank" class="item-link">
+            <a href="ce_pepar_Civil_engineering_materials.php" target="_blank" class="item-link">
                 <span class="item-icon">&#10067;</span>
                 <span>Previous Question Papers</span>
             </a>

@@ -116,7 +116,7 @@ body{
 <body>
 
 <header class="header">
-    <h1>Electrical And Electronic Measurement</h1>
+    <h1>Utilization of Electrical Energy</h1>
 </header>
 
 <main class="container">
@@ -144,7 +144,7 @@ body{
             </a>
 
             <!-- Previous Question Papers -->
-            <a href="admin/uploads/applied_math_qp.pdf" target="_blank" class="item-link">
+            <a href="ee_pepar_UEE.php" target="_blank" class="item-link">
                 <span class="item-icon">&#10067;</span>
                 <span>Previous Question Papers</span>
             </a>

@@ -25,7 +25,7 @@ if ($notes_row && !empty($notes_row['material_link'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design og RC Structure - LearnHub</title>
+<title>Design of RC Structure - LearnHub</title>
 
 <style>
 *{
@@ -144,7 +144,7 @@ body{
             </a>
 
             <!-- Previous Question Papers -->
-            <a href="admin/uploads/building_material_construction_qp.pdf" target="_blank" class="item-link">
+            <a href="ce_pepar_Design_of_RC_Structure.php" target="_blank" class="item-link">
                 <span class="item-icon">&#10067;</span>
                 <span>Previous Question Papers</span>
             </a>
